@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+        @RenderSection("css", required: false)
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body style="margin-top:-9px">
+        <header style="position:fixed; width:100%; background-color:white; z-index: 100">
+            @*Header*@
+            <div style="background-color:black">
+                <div class="row" style="margin: 0px 20px;">
+                    <div class="pull-left row">
+                        <p style="color: white">FOLLOW US ON 
+                            <span class="glyphicon glyphicon-search"></span>
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </p>
+                    </div>
+                    <div class="pull-right">
+                        <div class="pull-left row">
+                            <p style="color:white"><span class="glyphicon glyphicon-lock"></span>My Bag(0): 0000.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin: 0px 20px;">
+                <div class="pull-right row">
+                    <button class="btn btn-link" id="sign">SIGN IN</button>
+                    <span> | </span>
+                    <button class="btn btn-link" id="reg">REGISTER</button>
+                </div>
+            </div>
+
+            <div class="text-center" style="font-size: 3em;">
+                ELENI GEORGE
+            </div>
+
+            @*MENU*@
+            <nav class="navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav nav-click">
+                            <li class="active"><a href="#">Category1</a></li>
+                            <li><a href="#">Category1</a></li>
+                            <li><a href="#">Category1</a></li>
+                            <li><a href="#">Category1</a></li>
+                            <li><a href="#">Category1</a></li>
+                            <li><a href="#">Category1</a></li>
+                        </ul>
+                        <div class="col-lg-2 navbar-right navbar-form">
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+
+        <div style="margin-top:140px; z-index: 50">
+            @RenderBody()
+        </div>
+
+        @*FOOTER*@
+        <div id="footer" class="text-center" style="background-color:black; position:fixed; bottom: 0px; width:100%; z-index: 100">
+            <div style="margin: 0px auto; width:60%">
+                <div style="font-size: 1.5em; color:white;" class="btn-toolbar" role="toolbar">
+                    <div class="btn-group" style="margin: 0px 10px"><button class="btn btn-link">About US</button></div>
+                    <div class="btn-group" style="margin: 0px 10px"><button class="btn btn-link">FAQ</button></div>
+                    <div class="btn-group" style="margin: 0px 10px"><button class="btn btn-link">PRIVACY&COOKIES</button></div>
+                    <div class="btn-group" style="margin: 0px 10px"><button class="btn btn-link">TERMS&CONDITIONS</button></div>
+                    <div class="btn-group" style="margin: 0px 10px"><button class="btn btn-link">RESBONSIBILITY</button></div>
+                </div>
+            </div> 
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $(".nav-click > li").click(function () {
+                    //alert("yangyuan");
+                    window.location.href = "/Home/Index";
+                });
+            });
+        </script>
+    </body>
+</html>

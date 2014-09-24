@@ -1,0 +1,49 @@
+﻿@model EleniGeorge.Models.SiderBarModel
+
+<div id="sidebar-cate" style="margin: 10px 5px; background-color: white">
+    Category:
+    <ul>
+        @for (int index = 0; index < 15; ++index)
+        {
+            <li style="margin-left: -20px">
+                <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
+                    <label style="padding-left: 0px; font-size:0.8em">
+                        <input type="checkbox">@Model.catetegories.categories.ElementAt(index)
+                    </label>
+                </div>
+    	    </li>   
+        }
+    </ul>
+</div>
+
+<div id="sidebar-size" style="margin: 10px 5px; background-color: white">
+    Size:
+    <ul>
+        @foreach (var item in @Model.sizes.sizes)
+        {
+            <li class="pull-left" style="margin-left: -20px; width: 50%;">
+                <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
+                    <label style="padding-left: 0px; font-size:0.8em">
+                        <input type="checkbox">@item
+                    </label>
+                </div>
+    	    </li>   
+        }
+    </ul>
+</div>
+
+<div id="sidebar-color" style="clear: both; margin: 10px 5px; background-color: white">
+    Color:
+    <ul>
+        @foreach (var item in @Model.colors.colors)
+        {
+            <li class="pull-left" style="margin-left: -20px; width: 50%">
+                <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
+                    <label style="padding-left: 0px; font-size:0.8em">
+                        <input type="checkbox">@item
+                    </label>
+                </div>
+    	    </li>   
+        }
+    </ul>
+</div>
