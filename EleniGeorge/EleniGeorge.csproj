@@ -255,6 +255,22 @@
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\landingpage.jpg" />
+    <Content Include="Images\TestImages\01.jpg" />
+    <Content Include="Images\TestImages\02.jpg" />
+    <Content Include="Images\TestImages\03.jpg" />
+    <Content Include="Images\TestImages\04.jpg" />
+    <Content Include="Images\TestImages\05.jpg" />
+    <Content Include="Images\TestImages\06.jpg" />
+    <Content Include="Images\TestImages\08.jpg" />
+    <Content Include="Images\TestImages\09.jpg" />
+    <Content Include="Images\TestImages\10.jpg" />
+    <Content Include="Images\TestImages\11.jpg" />
+    <Content Include="Images\TestImages\12.jpg" />
+    <Content Include="Images\TestImages\13.jpg" />
+    <Content Include="Images\TestImages\14.jpg" />
+    <Content Include="Images\TestImages\15.jpg" />
+    <Content Include="Images\TestImages\16.jpg" />
+    <Content Include="Images\TestImages\17.jpg" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -303,6 +319,7 @@
     <Content Include="Views\Home\_LandingPageCard.cshtml" />
     <Content Include="Views\Home\_IndexSiderBar.cshtml" />
     <Content Include="Views\Home\_IndexItemGallery.cshtml" />
+    <Content Include="Views\Home\_IndexRouteLine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

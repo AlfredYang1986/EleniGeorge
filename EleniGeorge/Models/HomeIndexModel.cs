@@ -10,8 +10,10 @@ namespace EleniGeorge.Models
         public HomeIndexModel()
         {
             siderbar = new SiderBarModel();
+            items = new ItemGalleryModel();
         }
 
         public SiderBarModel siderbar;
+        public ItemGalleryModel items;
     }
 }

@@ -1,6 +1,11 @@
 ﻿@model EleniGeorge.Models.SiderBarModel
 
-<div id="sidebar-cate" style="margin: 10px 5px; background-color: white">
+<div class="row">
+    <p class="pull-left" style="margin: 0px 0px 0px 18px">REFINE BY:</p>
+    <button class="btn btn-link pull-right">Clear All</button>
+</div>
+
+<div id="sidebar-cate" style="margin: 10px 5px 10px 0px; background-color: white">
     Category:
     <ul>
         @for (int index = 0; index < 15; ++index)
@@ -16,12 +21,12 @@
     </ul>
 </div>
 
-<div id="sidebar-size" style="margin: 10px 5px; background-color: white">
+<div id="sidebar-size" style="margin: 10px 5px 10px 0px; background-color: white">
     Size:
-    <ul>
+    <ul style="margin-left: -20px">
         @foreach (var item in @Model.sizes.sizes)
         {
-            <li class="pull-left" style="margin-left: -20px; width: 50%;">
+            <li class="pull-left" style="margin-left: 0px; width: 33%;">
                 <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
                     <label style="padding-left: 0px; font-size:0.8em">
                         <input type="checkbox">@item
@@ -32,18 +37,47 @@
     </ul>
 </div>
 
-<div id="sidebar-color" style="clear: both; margin: 10px 5px; background-color: white">
+<div id="sidebar-color" style="clear: both; margin: 10px 5px 10px 0px; background-color: white">
     Color:
-    <ul>
+    <ul style="margin-left: -20px">
         @foreach (var item in @Model.colors.colors)
         {
-            <li class="pull-left" style="margin-left: -20px; width: 50%">
+            <li class="pull-left" style="margin-left: 0px; width: 33%">
                 <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
-                    <label style="padding-left: 0px; font-size:0.8em">
+                    <label style="padding-left: 0px; font-size:0.7em">
                         <input type="checkbox">@item
                     </label>
                 </div>
     	    </li>   
         }
     </ul>
+</div>
+
+<div id="sidebar-rating" style="clear: both; margin: 10px 5px 10px 0px; background-color: white">
+    Rating:
+    <ul style="margin-left: -20px">
+        @for (int index = 4; index >= 1; --index)
+        {
+            <li style="margin-left: 0px;">
+                <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
+                    <label style="padding-left: 0px; font-size:0.9em">
+                        <input type="checkbox">
+                        @for (int tmp_bl = 0; tmp_bl < index; ++tmp_bl)
+                        {
+                            <span class="glyphicon glyphicon-star"></span>
+                        }
+                        @for (int tmp_wt = 0; tmp_wt < 5 - index; ++tmp_wt)
+                        {
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        }
+                        & Up
+                    </label>
+                </div>
+    	    </li>   
+        }
+    </ul>
+</div>
+
+<div class="pull-right">
+    <button class="btn btn-link">Clear All</button>
 </div>

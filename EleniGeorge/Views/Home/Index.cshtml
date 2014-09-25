@@ -4,14 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<p>Home > Alfred Test</p>
+@Html.Partial("_IndexRouteLine")
 
-<div class="row" style="background-color: #ddd9d9; margin-bottom: 35px">
-    <div id="sidebar" class="col-lg-3">
+<div class="row" style="margin-left: 0px; margin-right: 0px; background-color: white; margin-bottom: 35px">
+    <div id="sidebar" class="col-lg-2" style="border: 1px solid #eee">
         @Html.Partial("_IndexSiderBar", @Model.siderbar)
     </div>
 
-    <div class="col-lg-9">
+    <div class="col-lg-10">
+        @Html.Partial("_IndexItemGallery", @Model.items)
     </div>
 </div>
 
@@ -19,8 +20,8 @@
     <script type="text/javascript">
         $(function () {
             $("#sidebar-cate").css("height", $("#sidebar-cate > ul > li").size() * 20 + 25);
-            $("#sidebar-size").css("height", $("#sidebar-size > ul > li").size() / 2 * 20 + 25);
-            $("#sidebar-color").css("height", $("#sidebar-color > ul > li").size() / 2 * 20 + 25);
+            $("#sidebar-size").css("height", $("#sidebar-size > ul > li").size() / 3 * 20 + 25);
+            $("#sidebar-color").css("height", $("#sidebar-color > ul > li").size() / 3 * 20 + 25);
         });
     </script>
 }

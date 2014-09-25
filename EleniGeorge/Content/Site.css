@@ -587,6 +587,33 @@ tr.pager td {
 }
 
 
+a#pdView:hover {
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a#pdView {
+    color: #c8c8c8;
+}
+
+a#otView {
+    color: #c8c8c8;
+}
+
+a#otView:hover {
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
+.aViewClick {
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
 /********************
 *   Mobile Styles   *
 ********************/
