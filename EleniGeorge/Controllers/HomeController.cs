@@ -25,6 +25,20 @@ namespace EleniGeorge.Controllers
             return View(m);
         }
 
+        // GET: /SignInView
+
+        public ActionResult SignInView()
+        {
+            return View();
+        }
+
+        // GET: /Profile
+
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
         // POST: /Search
 
         [HttpPost]

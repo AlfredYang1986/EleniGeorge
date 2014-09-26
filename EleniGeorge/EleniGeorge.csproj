@@ -320,6 +320,8 @@
     <Content Include="Views\Home\_IndexSiderBar.cshtml" />
     <Content Include="Views\Home\_IndexItemGallery.cshtml" />
     <Content Include="Views\Home\_IndexRouteLine.cshtml" />
+    <Content Include="Views\Home\SignInView.cshtml" />
+    <Content Include="Views\Home\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
