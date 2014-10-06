@@ -1,0 +1,1553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TTDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TTDBModelStoreContainer">
+          <EntitySet Name="Address" EntityType="TTDBModel.Store.Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Color" EntityType="TTDBModel.Store.Color" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ColorMapping" EntityType="TTDBModel.Store.ColorMapping" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CountryRegion" EntityType="TTDBModel.Store.CountryRegion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CreditCard" EntityType="TTDBModel.Store.CreditCard" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customer" EntityType="TTDBModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Favourites" EntityType="TTDBModel.Store.Favourites" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Item" EntityType="TTDBModel.Store.Item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemColor" EntityType="TTDBModel.Store.ItemColor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemMaterial" EntityType="TTDBModel.Store.ItemMaterial" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemOccasion" EntityType="TTDBModel.Store.ItemOccasion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemPicture" EntityType="TTDBModel.Store.ItemPicture" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemSize" EntityType="TTDBModel.Store.ItemSize" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemStyle" EntityType="TTDBModel.Store.ItemStyle" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Material" EntityType="TTDBModel.Store.Material" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Occasion" EntityType="TTDBModel.Store.Occasion" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Picture" EntityType="TTDBModel.Store.Picture" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SalesOrderHeader" EntityType="TTDBModel.Store.SalesOrderHeader" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SalesOrderRow" EntityType="TTDBModel.Store.SalesOrderRow" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShipMethod" EntityType="TTDBModel.Store.ShipMethod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShoppingCart" EntityType="TTDBModel.Store.ShoppingCart" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Size" EntityType="TTDBModel.Store.Size" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StateProvince" EntityType="TTDBModel.Store.StateProvince" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Style" EntityType="TTDBModel.Store.Style" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="TTDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Address_StateProvince" Association="TTDBModel.Store.FK_Address_StateProvince">
+            <End Role="StateProvince" EntitySet="StateProvince" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorMapping_Color" Association="TTDBModel.Store.FK_ColorMapping_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="ColorMapping" EntitySet="ColorMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_CreditCard" Association="TTDBModel.Store.FK_Customer_CreditCard">
+            <End Role="CreditCard" EntitySet="CreditCard" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favourites_Customer" Association="TTDBModel.Store.FK_Favourites_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Favourites" EntitySet="Favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Favourites_Item" Association="TTDBModel.Store.FK_Favourites_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Favourites" EntitySet="Favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemColor_Color" Association="TTDBModel.Store.FK_ItemColor_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="ItemColor" EntitySet="ItemColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemColor_Item" Association="TTDBModel.Store.FK_ItemColor_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemColor" EntitySet="ItemColor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemMaterial_Item" Association="TTDBModel.Store.FK_ItemMaterial_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemMaterial" EntitySet="ItemMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemMaterial_Material" Association="TTDBModel.Store.FK_ItemMaterial_Material">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="ItemMaterial" EntitySet="ItemMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemOccasion_Item" Association="TTDBModel.Store.FK_ItemOccasion_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemOccasion" EntitySet="ItemOccasion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemOccasion_Occasion" Association="TTDBModel.Store.FK_ItemOccasion_Occasion">
+            <End Role="Occasion" EntitySet="Occasion" />
+            <End Role="ItemOccasion" EntitySet="ItemOccasion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPicture_Item" Association="TTDBModel.Store.FK_ItemPicture_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemPicture" EntitySet="ItemPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPicture_Picture" Association="TTDBModel.Store.FK_ItemPicture_Picture">
+            <End Role="Picture" EntitySet="Picture" />
+            <End Role="ItemPicture" EntitySet="ItemPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSize_Item" Association="TTDBModel.Store.FK_ItemSize_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemSize" EntitySet="ItemSize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSize_Size" Association="TTDBModel.Store.FK_ItemSize_Size">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="ItemSize" EntitySet="ItemSize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemStyle_Item" Association="TTDBModel.Store.FK_ItemStyle_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemStyle" EntitySet="ItemStyle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemStyle_Style" Association="TTDBModel.Store.FK_ItemStyle_Style">
+            <End Role="Style" EntitySet="Style" />
+            <End Role="ItemStyle" EntitySet="ItemStyle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Address" Association="TTDBModel.Store.FK_SalesOrderHeader_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Address1" Association="TTDBModel.Store.FK_SalesOrderHeader_Address1">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_CreditCard" Association="TTDBModel.Store.FK_SalesOrderHeader_CreditCard">
+            <End Role="CreditCard" EntitySet="CreditCard" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Customer" Association="TTDBModel.Store.FK_SalesOrderHeader_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_ShipMethod" Association="TTDBModel.Store.FK_SalesOrderHeader_ShipMethod">
+            <End Role="ShipMethod" EntitySet="ShipMethod" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderRow_Item" Association="TTDBModel.Store.FK_SalesOrderRow_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="SalesOrderRow" EntitySet="SalesOrderRow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderRow_SalesOrderHeader" Association="TTDBModel.Store.FK_SalesOrderRow_SalesOrderHeader">
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+            <End Role="SalesOrderRow" EntitySet="SalesOrderRow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCart_Customer" Association="TTDBModel.Store.FK_ShoppingCart_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCart_Item" Association="TTDBModel.Store.FK_ShoppingCart_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateProvince_CountryRegion" Association="TTDBModel.Store.FK_StateProvince_CountryRegion">
+            <End Role="CountryRegion" EntitySet="CountryRegion" />
+            <End Role="StateProvince" EntitySet="StateProvince" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="StateProvinceID" Type="int" Nullable="false" />
+          <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="SpatialLocation" Type="geography" />
+          <Property Name="AddressGUID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ColorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ColorName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ColorMapping">
+          <Key>
+            <PropertyRef Name="ColorID" />
+            <PropertyRef Name="RGB" />
+          </Key>
+          <Property Name="ColorID" Type="int" Nullable="false" />
+          <Property Name="RGB" Type="nchar" Nullable="false" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="CountryRegion">
+          <Key>
+            <PropertyRef Name="CountryRegionCode" />
+          </Key>
+          <Property Name="CountryRegionCode" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CreditCard">
+          <Key>
+            <PropertyRef Name="CreditCardID" />
+          </Key>
+          <Property Name="CreditCardID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CardType" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CardNumber" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="ExpMonth" Type="tinyint" Nullable="false" />
+          <Property Name="ExpYear" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Title" Type="varchar" MaxLength="8" />
+          <Property Name="Firstname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Lastname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreditCardID" Type="int" />
+          <Property Name="PaypalAccount" Type="nchar" MaxLength="10" />
+          <Property Name="DefaultPaymentMethod" Type="nchar" MaxLength="10" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Favourites">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ProductNumber" Type="varchar" MaxLength="50" />
+          <Property Name="LowStockWarningLevel" Type="smallint" />
+          <Property Name="ListPrice" Type="float" />
+          <Property Name="StandardCost" Type="float" />
+          <Property Name="ItemDesc" Type="varchar" Nullable="false" MaxLength="1500" />
+          <Property Name="DaysToMake" Type="int" />
+          <Property Name="SellStartDate" Type="datetime" Nullable="false" />
+          <Property Name="SellEndDate" Type="datetime" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="ItemGUID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemColor">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="ColorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemMaterial">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="MaterialID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemOccasion">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="OccasionID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="OccasionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemPicture">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="PictureID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="PictureID" Type="int" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemSize">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="SizeID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="SizeID" Type="int" Nullable="false" />
+          <Property Name="StockLevel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemStyle">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="StyleID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="StyleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="MaterialID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="MaterialDesc" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Occasion">
+          <Key>
+            <PropertyRef Name="OccasionID" />
+          </Key>
+          <Property Name="OccasionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OccasionName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="PictureID" />
+          </Key>
+          <Property Name="PictureID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ThumbnailPic" Type="varbinary" />
+          <Property Name="LargePictureAddress" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SalesOrderHeader">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ShipMethodID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="DueDate" Type="datetime" Nullable="false" />
+          <Property Name="ShipDate" Type="datetime" />
+          <Property Name="Status" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="BillToAddressID" Type="int" Nullable="false" />
+          <Property Name="ShipToAddressID" Type="int" Nullable="false" />
+          <Property Name="CreditCardID" Type="int" Nullable="false" />
+          <Property Name="SubTotal" Type="float" Nullable="false" />
+          <Property Name="TaxAmt" Type="float" Nullable="false" />
+          <Property Name="Freight" Type="float" Nullable="false" />
+          <Property Name="TotalDue" Type="float" Nullable="false" />
+          <Property Name="SalesOrderGUID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesOrderRow">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+            <PropertyRef Name="SalesOrderRowID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="int" Nullable="false" />
+          <Property Name="SalesOrderRowID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarrierTrackingNumber" Type="varchar" MaxLength="50" />
+          <Property Name="OrderQty" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="SpecialOfferID" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="float" Nullable="false" />
+          <Property Name="UnitPriceDiscount" Type="float" Nullable="false" />
+          <Property Name="LineTotal" Type="float" Nullable="false" />
+          <Property Name="SalesOrderRowGUID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShipMethod">
+          <Key>
+            <PropertyRef Name="ShipMethodID" />
+          </Key>
+          <Property Name="ShipMethodID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TrackingURL" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="SizeID" />
+          </Key>
+          <Property Name="SizeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SizeName" Type="varbinary" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StateProvince">
+          <Key>
+            <PropertyRef Name="StateProvinceID" />
+          </Key>
+          <Property Name="StateProvinceID" Type="int" Nullable="false" />
+          <Property Name="StateProvinceCode" Type="nchar" Nullable="false" MaxLength="3" />
+          <Property Name="CountryRegionCode" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="StateProvinceGUID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Style">
+          <Key>
+            <PropertyRef Name="StyleID" />
+          </Key>
+          <Property Name="StyleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StyleName" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Address_StateProvince">
+          <End Role="StateProvince" Type="TTDBModel.Store.StateProvince" Multiplicity="1" />
+          <End Role="Address" Type="TTDBModel.Store.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateProvince">
+              <PropertyRef Name="StateProvinceID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="StateProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorMapping_Color">
+          <End Role="Color" Type="TTDBModel.Store.Color" Multiplicity="1" />
+          <End Role="ColorMapping" Type="TTDBModel.Store.ColorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorID" />
+            </Principal>
+            <Dependent Role="ColorMapping">
+              <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_CreditCard">
+          <End Role="CreditCard" Type="TTDBModel.Store.CreditCard" Multiplicity="0..1" />
+          <End Role="Customer" Type="TTDBModel.Store.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreditCard">
+              <PropertyRef Name="CreditCardID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreditCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favourites_Customer">
+          <End Role="Customer" Type="TTDBModel.Store.Customer" Multiplicity="1" />
+          <End Role="Favourites" Type="TTDBModel.Store.Favourites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Favourites">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Favourites_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="Favourites" Type="TTDBModel.Store.Favourites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="Favourites">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemColor_Color">
+          <End Role="Color" Type="TTDBModel.Store.Color" Multiplicity="1" />
+          <End Role="ItemColor" Type="TTDBModel.Store.ItemColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorID" />
+            </Principal>
+            <Dependent Role="ItemColor">
+              <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemColor_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemColor" Type="TTDBModel.Store.ItemColor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemColor">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemMaterial_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemMaterial" Type="TTDBModel.Store.ItemMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemMaterial">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemMaterial_Material">
+          <End Role="Material" Type="TTDBModel.Store.Material" Multiplicity="1" />
+          <End Role="ItemMaterial" Type="TTDBModel.Store.ItemMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="MaterialID" />
+            </Principal>
+            <Dependent Role="ItemMaterial">
+              <PropertyRef Name="MaterialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemOccasion_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemOccasion" Type="TTDBModel.Store.ItemOccasion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemOccasion">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemOccasion_Occasion">
+          <End Role="Occasion" Type="TTDBModel.Store.Occasion" Multiplicity="1" />
+          <End Role="ItemOccasion" Type="TTDBModel.Store.ItemOccasion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Occasion">
+              <PropertyRef Name="OccasionID" />
+            </Principal>
+            <Dependent Role="ItemOccasion">
+              <PropertyRef Name="OccasionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPicture_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemPicture" Type="TTDBModel.Store.ItemPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemPicture">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPicture_Picture">
+          <End Role="Picture" Type="TTDBModel.Store.Picture" Multiplicity="1" />
+          <End Role="ItemPicture" Type="TTDBModel.Store.ItemPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Picture">
+              <PropertyRef Name="PictureID" />
+            </Principal>
+            <Dependent Role="ItemPicture">
+              <PropertyRef Name="PictureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSize_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemSize" Type="TTDBModel.Store.ItemSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemSize">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSize_Size">
+          <End Role="Size" Type="TTDBModel.Store.Size" Multiplicity="1" />
+          <End Role="ItemSize" Type="TTDBModel.Store.ItemSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="SizeID" />
+            </Principal>
+            <Dependent Role="ItemSize">
+              <PropertyRef Name="SizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemStyle_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemStyle" Type="TTDBModel.Store.ItemStyle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemStyle">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemStyle_Style">
+          <End Role="Style" Type="TTDBModel.Store.Style" Multiplicity="1" />
+          <End Role="ItemStyle" Type="TTDBModel.Store.ItemStyle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Style">
+              <PropertyRef Name="StyleID" />
+            </Principal>
+            <Dependent Role="ItemStyle">
+              <PropertyRef Name="StyleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Address">
+          <End Role="Address" Type="TTDBModel.Store.Address" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="BillToAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Address1">
+          <End Role="Address" Type="TTDBModel.Store.Address" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="ShipToAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_CreditCard">
+          <End Role="CreditCard" Type="TTDBModel.Store.CreditCard" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreditCard">
+              <PropertyRef Name="CreditCardID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="CreditCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Customer">
+          <End Role="Customer" Type="TTDBModel.Store.Customer" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_ShipMethod">
+          <End Role="ShipMethod" Type="TTDBModel.Store.ShipMethod" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.Store.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShipMethod">
+              <PropertyRef Name="ShipMethodID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="ShipMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderRow_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="SalesOrderRow" Type="TTDBModel.Store.SalesOrderRow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="SalesOrderRow">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderRow_SalesOrderHeader">
+          <End Role="SalesOrderHeader" Type="TTDBModel.Store.SalesOrderHeader" Multiplicity="1" />
+          <End Role="SalesOrderRow" Type="TTDBModel.Store.SalesOrderRow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesOrderHeader">
+              <PropertyRef Name="SalesOrderID" />
+            </Principal>
+            <Dependent Role="SalesOrderRow">
+              <PropertyRef Name="SalesOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingCart_Customer">
+          <End Role="Customer" Type="TTDBModel.Store.Customer" Multiplicity="1" />
+          <End Role="ShoppingCart" Type="TTDBModel.Store.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingCart_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="ShoppingCart" Type="TTDBModel.Store.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateProvince_CountryRegion">
+          <End Role="CountryRegion" Type="TTDBModel.Store.CountryRegion" Multiplicity="1" />
+          <End Role="StateProvince" Type="TTDBModel.Store.StateProvince" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryRegion">
+              <PropertyRef Name="CountryRegionCode" />
+            </Principal>
+            <Dependent Role="StateProvince">
+              <PropertyRef Name="CountryRegionCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TTDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TTDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Address" EntityType="TTDBModel.Address" />
+          <EntitySet Name="Color" EntityType="TTDBModel.Color" />
+          <EntitySet Name="ColorMapping" EntityType="TTDBModel.ColorMapping" />
+          <EntitySet Name="CountryRegion" EntityType="TTDBModel.CountryRegion" />
+          <EntitySet Name="CreditCard" EntityType="TTDBModel.CreditCard" />
+          <EntitySet Name="Customer" EntityType="TTDBModel.Customer" />
+          <EntitySet Name="Item" EntityType="TTDBModel.Item" />
+          <EntitySet Name="ItemPicture" EntityType="TTDBModel.ItemPicture" />
+          <EntitySet Name="ItemSize" EntityType="TTDBModel.ItemSize" />
+          <EntitySet Name="Material" EntityType="TTDBModel.Material" />
+          <EntitySet Name="Occasion" EntityType="TTDBModel.Occasion" />
+          <EntitySet Name="Picture" EntityType="TTDBModel.Picture" />
+          <EntitySet Name="SalesOrderHeader" EntityType="TTDBModel.SalesOrderHeader" />
+          <EntitySet Name="SalesOrderRow" EntityType="TTDBModel.SalesOrderRow" />
+          <EntitySet Name="ShipMethod" EntityType="TTDBModel.ShipMethod" />
+          <EntitySet Name="Size" EntityType="TTDBModel.Size" />
+          <EntitySet Name="StateProvince" EntityType="TTDBModel.StateProvince" />
+          <EntitySet Name="Style" EntityType="TTDBModel.Style" />
+          <EntitySet Name="sysdiagrams" EntityType="TTDBModel.sysdiagrams" />
+          <AssociationSet Name="FK_Address_StateProvince" Association="TTDBModel.FK_Address_StateProvince">
+            <End Role="StateProvince" EntitySet="StateProvince" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Address" Association="TTDBModel.FK_SalesOrderHeader_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Address1" Association="TTDBModel.FK_SalesOrderHeader_Address1">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ColorMapping_Color" Association="TTDBModel.FK_ColorMapping_Color">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="ColorMapping" EntitySet="ColorMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateProvince_CountryRegion" Association="TTDBModel.FK_StateProvince_CountryRegion">
+            <End Role="CountryRegion" EntitySet="CountryRegion" />
+            <End Role="StateProvince" EntitySet="StateProvince" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_CreditCard" Association="TTDBModel.FK_Customer_CreditCard">
+            <End Role="CreditCard" EntitySet="CreditCard" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_CreditCard" Association="TTDBModel.FK_SalesOrderHeader_CreditCard">
+            <End Role="CreditCard" EntitySet="CreditCard" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Customer" Association="TTDBModel.FK_SalesOrderHeader_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPicture_Item" Association="TTDBModel.FK_ItemPicture_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemPicture" EntitySet="ItemPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSize_Item" Association="TTDBModel.FK_ItemSize_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemSize" EntitySet="ItemSize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderRow_Item" Association="TTDBModel.FK_SalesOrderRow_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="SalesOrderRow" EntitySet="SalesOrderRow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemPicture_Picture" Association="TTDBModel.FK_ItemPicture_Picture">
+            <End Role="Picture" EntitySet="Picture" />
+            <End Role="ItemPicture" EntitySet="ItemPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemSize_Size" Association="TTDBModel.FK_ItemSize_Size">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="ItemSize" EntitySet="ItemSize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_ShipMethod" Association="TTDBModel.FK_SalesOrderHeader_ShipMethod">
+            <End Role="ShipMethod" EntitySet="ShipMethod" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderRow_SalesOrderHeader" Association="TTDBModel.FK_SalesOrderRow_SalesOrderHeader">
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+            <End Role="SalesOrderRow" EntitySet="SalesOrderRow" />
+          </AssociationSet>
+          <AssociationSet Name="Favourites" Association="TTDBModel.Favourites">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="ItemColor" Association="TTDBModel.ItemColor">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="ItemMaterial" Association="TTDBModel.ItemMaterial">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Material" EntitySet="Material" />
+          </AssociationSet>
+          <AssociationSet Name="ItemOccasion" Association="TTDBModel.ItemOccasion">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Occasion" EntitySet="Occasion" />
+          </AssociationSet>
+          <AssociationSet Name="ItemStyle" Association="TTDBModel.ItemStyle">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Style" EntitySet="Style" />
+          </AssociationSet>
+          <AssociationSet Name="ShoppingCart" Association="TTDBModel.ShoppingCart">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="StateProvinceID" Type="Int32" Nullable="false" />
+          <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="SpatialLocation" Type="Geography" />
+          <Property Name="AddressGUID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="StateProvince" Relationship="TTDBModel.FK_Address_StateProvince" FromRole="Address" ToRole="StateProvince" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="TTDBModel.FK_SalesOrderHeader_Address" FromRole="Address" ToRole="SalesOrderHeader" />
+          <NavigationProperty Name="SalesOrderHeader1" Relationship="TTDBModel.FK_SalesOrderHeader_Address1" FromRole="Address" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="ColorID" />
+          </Key>
+          <Property Name="ColorID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ColorMapping" Relationship="TTDBModel.FK_ColorMapping_Color" FromRole="Color" ToRole="ColorMapping" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.ItemColor" FromRole="Color" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="ColorMapping">
+          <Key>
+            <PropertyRef Name="ColorID" />
+            <PropertyRef Name="RGB" />
+          </Key>
+          <Property Name="ColorID" Type="Int32" Nullable="false" />
+          <Property Name="RGB" Type="String" Nullable="false" MaxLength="8" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Color" Relationship="TTDBModel.FK_ColorMapping_Color" FromRole="ColorMapping" ToRole="Color" />
+        </EntityType>
+        <EntityType Name="CountryRegion">
+          <Key>
+            <PropertyRef Name="CountryRegionCode" />
+          </Key>
+          <Property Name="CountryRegionCode" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="StateProvince" Relationship="TTDBModel.FK_StateProvince_CountryRegion" FromRole="CountryRegion" ToRole="StateProvince" />
+        </EntityType>
+        <EntityType Name="CreditCard">
+          <Key>
+            <PropertyRef Name="CreditCardID" />
+          </Key>
+          <Property Name="CreditCardID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CardType" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CardNumber" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="ExpMonth" Type="Byte" Nullable="false" />
+          <Property Name="ExpYear" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="TTDBModel.FK_Customer_CreditCard" FromRole="CreditCard" ToRole="Customer" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="TTDBModel.FK_SalesOrderHeader_CreditCard" FromRole="CreditCard" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Suffix" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="CreditCardID" Type="Int32" />
+          <Property Name="PaypalAccount" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DefaultPaymentMethod" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Phone" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CreditCard" Relationship="TTDBModel.FK_Customer_CreditCard" FromRole="Customer" ToRole="CreditCard" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="TTDBModel.FK_SalesOrderHeader_Customer" FromRole="Customer" ToRole="SalesOrderHeader" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.Favourites" FromRole="Customer" ToRole="Item" />
+          <NavigationProperty Name="Item1" Relationship="TTDBModel.ShoppingCart" FromRole="Customer" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProductNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LowStockWarningLevel" Type="Int16" />
+          <Property Name="ListPrice" Type="Double" />
+          <Property Name="StandardCost" Type="Double" />
+          <Property Name="ItemDesc" Type="String" Nullable="false" MaxLength="1500" Unicode="false" FixedLength="false" />
+          <Property Name="DaysToMake" Type="Int32" />
+          <Property Name="SellStartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SellEndDate" Type="DateTime" Precision="3" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="ItemGUID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ItemPicture" Relationship="TTDBModel.FK_ItemPicture_Item" FromRole="Item" ToRole="ItemPicture" />
+          <NavigationProperty Name="ItemSize" Relationship="TTDBModel.FK_ItemSize_Item" FromRole="Item" ToRole="ItemSize" />
+          <NavigationProperty Name="SalesOrderRow" Relationship="TTDBModel.FK_SalesOrderRow_Item" FromRole="Item" ToRole="SalesOrderRow" />
+          <NavigationProperty Name="Customer" Relationship="TTDBModel.Favourites" FromRole="Item" ToRole="Customer" />
+          <NavigationProperty Name="Color" Relationship="TTDBModel.ItemColor" FromRole="Item" ToRole="Color" />
+          <NavigationProperty Name="Material" Relationship="TTDBModel.ItemMaterial" FromRole="Item" ToRole="Material" />
+          <NavigationProperty Name="Occasion" Relationship="TTDBModel.ItemOccasion" FromRole="Item" ToRole="Occasion" />
+          <NavigationProperty Name="Style" Relationship="TTDBModel.ItemStyle" FromRole="Item" ToRole="Style" />
+          <NavigationProperty Name="Customer1" Relationship="TTDBModel.ShoppingCart" FromRole="Item" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="ItemPicture">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="PictureID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="PictureID" Type="Int32" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.FK_ItemPicture_Item" FromRole="ItemPicture" ToRole="Item" />
+          <NavigationProperty Name="Picture" Relationship="TTDBModel.FK_ItemPicture_Picture" FromRole="ItemPicture" ToRole="Picture" />
+        </EntityType>
+        <EntityType Name="ItemSize">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="SizeID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="SizeID" Type="Int32" Nullable="false" />
+          <Property Name="StockLevel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.FK_ItemSize_Item" FromRole="ItemSize" ToRole="Item" />
+          <NavigationProperty Name="Size" Relationship="TTDBModel.FK_ItemSize_Size" FromRole="ItemSize" ToRole="Size" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="MaterialID" />
+          </Key>
+          <Property Name="MaterialID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MaterialDesc" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.ItemMaterial" FromRole="Material" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Occasion">
+          <Key>
+            <PropertyRef Name="OccasionID" />
+          </Key>
+          <Property Name="OccasionID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OccasionName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.ItemOccasion" FromRole="Occasion" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="PictureID" />
+          </Key>
+          <Property Name="PictureID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ThumbnailPic" Type="Binary" MaxLength="8000" FixedLength="false" />
+          <Property Name="LargePictureAddress" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ItemPicture" Relationship="TTDBModel.FK_ItemPicture_Picture" FromRole="Picture" ToRole="ItemPicture" />
+        </EntityType>
+        <EntityType Name="SalesOrderHeader">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipMethodID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ShipDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="BillToAddressID" Type="Int32" Nullable="false" />
+          <Property Name="ShipToAddressID" Type="Int32" Nullable="false" />
+          <Property Name="CreditCardID" Type="Int32" Nullable="false" />
+          <Property Name="SubTotal" Type="Double" Nullable="false" />
+          <Property Name="TaxAmt" Type="Double" Nullable="false" />
+          <Property Name="Freight" Type="Double" Nullable="false" />
+          <Property Name="TotalDue" Type="Double" Nullable="false" />
+          <Property Name="SalesOrderGUID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="TTDBModel.FK_SalesOrderHeader_Address" FromRole="SalesOrderHeader" ToRole="Address" />
+          <NavigationProperty Name="Address1" Relationship="TTDBModel.FK_SalesOrderHeader_Address1" FromRole="SalesOrderHeader" ToRole="Address" />
+          <NavigationProperty Name="CreditCard" Relationship="TTDBModel.FK_SalesOrderHeader_CreditCard" FromRole="SalesOrderHeader" ToRole="CreditCard" />
+          <NavigationProperty Name="Customer" Relationship="TTDBModel.FK_SalesOrderHeader_Customer" FromRole="SalesOrderHeader" ToRole="Customer" />
+          <NavigationProperty Name="ShipMethod" Relationship="TTDBModel.FK_SalesOrderHeader_ShipMethod" FromRole="SalesOrderHeader" ToRole="ShipMethod" />
+          <NavigationProperty Name="SalesOrderRow" Relationship="TTDBModel.FK_SalesOrderRow_SalesOrderHeader" FromRole="SalesOrderHeader" ToRole="SalesOrderRow" />
+        </EntityType>
+        <EntityType Name="SalesOrderRow">
+          <Key>
+            <PropertyRef Name="SalesOrderID" />
+            <PropertyRef Name="SalesOrderRowID" />
+          </Key>
+          <Property Name="SalesOrderID" Type="Int32" Nullable="false" />
+          <Property Name="SalesOrderRowID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarrierTrackingNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OrderQty" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="SpecialOfferID" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Double" Nullable="false" />
+          <Property Name="UnitPriceDiscount" Type="Double" Nullable="false" />
+          <Property Name="LineTotal" Type="Double" Nullable="false" />
+          <Property Name="SalesOrderRowGUID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.FK_SalesOrderRow_Item" FromRole="SalesOrderRow" ToRole="Item" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="TTDBModel.FK_SalesOrderRow_SalesOrderHeader" FromRole="SalesOrderRow" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="ShipMethod">
+          <Key>
+            <PropertyRef Name="ShipMethodID" />
+          </Key>
+          <Property Name="ShipMethodID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TrackingURL" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="TTDBModel.FK_SalesOrderHeader_ShipMethod" FromRole="ShipMethod" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="SizeID" />
+          </Key>
+          <Property Name="SizeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SizeName" Type="Binary" Nullable="false" MaxLength="50" FixedLength="false" />
+          <NavigationProperty Name="ItemSize" Relationship="TTDBModel.FK_ItemSize_Size" FromRole="Size" ToRole="ItemSize" />
+        </EntityType>
+        <EntityType Name="StateProvince">
+          <Key>
+            <PropertyRef Name="StateProvinceID" />
+          </Key>
+          <Property Name="StateProvinceID" Type="Int32" Nullable="false" />
+          <Property Name="StateProvinceCode" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="true" />
+          <Property Name="CountryRegionCode" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StateProvinceGUID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="TTDBModel.FK_Address_StateProvince" FromRole="StateProvince" ToRole="Address" />
+          <NavigationProperty Name="CountryRegion" Relationship="TTDBModel.FK_StateProvince_CountryRegion" FromRole="StateProvince" ToRole="CountryRegion" />
+        </EntityType>
+        <EntityType Name="Style">
+          <Key>
+            <PropertyRef Name="StyleID" />
+          </Key>
+          <Property Name="StyleID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StyleName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.ItemStyle" FromRole="Style" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Address_StateProvince">
+          <End Role="StateProvince" Type="TTDBModel.StateProvince" Multiplicity="1" />
+          <End Role="Address" Type="TTDBModel.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateProvince">
+              <PropertyRef Name="StateProvinceID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="StateProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Address">
+          <End Role="Address" Type="TTDBModel.Address" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="BillToAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Address1">
+          <End Role="Address" Type="TTDBModel.Address" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="ShipToAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ColorMapping_Color">
+          <End Role="Color" Type="TTDBModel.Color" Multiplicity="1" />
+          <End Role="ColorMapping" Type="TTDBModel.ColorMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="ColorID" />
+            </Principal>
+            <Dependent Role="ColorMapping">
+              <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateProvince_CountryRegion">
+          <End Role="CountryRegion" Type="TTDBModel.CountryRegion" Multiplicity="1" />
+          <End Role="StateProvince" Type="TTDBModel.StateProvince" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryRegion">
+              <PropertyRef Name="CountryRegionCode" />
+            </Principal>
+            <Dependent Role="StateProvince">
+              <PropertyRef Name="CountryRegionCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_CreditCard">
+          <End Role="CreditCard" Type="TTDBModel.CreditCard" Multiplicity="0..1" />
+          <End Role="Customer" Type="TTDBModel.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreditCard">
+              <PropertyRef Name="CreditCardID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreditCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_CreditCard">
+          <End Role="CreditCard" Type="TTDBModel.CreditCard" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CreditCard">
+              <PropertyRef Name="CreditCardID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="CreditCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Customer">
+          <End Role="Customer" Type="TTDBModel.Customer" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPicture_Item">
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="1" />
+          <End Role="ItemPicture" Type="TTDBModel.ItemPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemPicture">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSize_Item">
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="1" />
+          <End Role="ItemSize" Type="TTDBModel.ItemSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemSize">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderRow_Item">
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="1" />
+          <End Role="SalesOrderRow" Type="TTDBModel.SalesOrderRow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="SalesOrderRow">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemPicture_Picture">
+          <End Role="Picture" Type="TTDBModel.Picture" Multiplicity="1" />
+          <End Role="ItemPicture" Type="TTDBModel.ItemPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Picture">
+              <PropertyRef Name="PictureID" />
+            </Principal>
+            <Dependent Role="ItemPicture">
+              <PropertyRef Name="PictureID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemSize_Size">
+          <End Role="Size" Type="TTDBModel.Size" Multiplicity="1" />
+          <End Role="ItemSize" Type="TTDBModel.ItemSize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="SizeID" />
+            </Principal>
+            <Dependent Role="ItemSize">
+              <PropertyRef Name="SizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_ShipMethod">
+          <End Role="ShipMethod" Type="TTDBModel.ShipMethod" Multiplicity="1" />
+          <End Role="SalesOrderHeader" Type="TTDBModel.SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShipMethod">
+              <PropertyRef Name="ShipMethodID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="ShipMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderRow_SalesOrderHeader">
+          <End Role="SalesOrderHeader" Type="TTDBModel.SalesOrderHeader" Multiplicity="1" />
+          <End Role="SalesOrderRow" Type="TTDBModel.SalesOrderRow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalesOrderHeader">
+              <PropertyRef Name="SalesOrderID" />
+            </Principal>
+            <Dependent Role="SalesOrderRow">
+              <PropertyRef Name="SalesOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Favourites">
+          <End Role="Customer" Type="TTDBModel.Customer" Multiplicity="*" />
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
+        </Association>
+        <Association Name="ItemColor">
+          <End Role="Color" Type="TTDBModel.Color" Multiplicity="*" />
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
+        </Association>
+        <Association Name="ItemMaterial">
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
+          <End Role="Material" Type="TTDBModel.Material" Multiplicity="*" />
+        </Association>
+        <Association Name="ItemOccasion">
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
+          <End Role="Occasion" Type="TTDBModel.Occasion" Multiplicity="*" />
+        </Association>
+        <Association Name="ItemStyle">
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
+          <End Role="Style" Type="TTDBModel.Style" Multiplicity="*" />
+        </Association>
+        <Association Name="ShoppingCart">
+          <End Role="Customer" Type="TTDBModel.Customer" Multiplicity="*" />
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TTDBModelStoreContainer" CdmEntityContainer="TTDBEntities">
+          <EntitySetMapping Name="Address">
+            <EntityTypeMapping TypeName="TTDBModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="SpatialLocation" ColumnName="SpatialLocation" />
+                <ScalarProperty Name="AddressGUID" ColumnName="AddressGUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Color">
+            <EntityTypeMapping TypeName="TTDBModel.Color">
+              <MappingFragment StoreEntitySet="Color">
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ColorMapping">
+            <EntityTypeMapping TypeName="TTDBModel.ColorMapping">
+              <MappingFragment StoreEntitySet="ColorMapping">
+                <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+                <ScalarProperty Name="RGB" ColumnName="RGB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryRegion">
+            <EntityTypeMapping TypeName="TTDBModel.CountryRegion">
+              <MappingFragment StoreEntitySet="CountryRegion">
+                <ScalarProperty Name="CountryRegionCode" ColumnName="CountryRegionCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CreditCard">
+            <EntityTypeMapping TypeName="TTDBModel.CreditCard">
+              <MappingFragment StoreEntitySet="CreditCard">
+                <ScalarProperty Name="CreditCardID" ColumnName="CreditCardID" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="ExpMonth" ColumnName="ExpMonth" />
+                <ScalarProperty Name="ExpYear" ColumnName="ExpYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="TTDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="CreditCardID" ColumnName="CreditCardID" />
+                <ScalarProperty Name="PaypalAccount" ColumnName="PaypalAccount" />
+                <ScalarProperty Name="DefaultPaymentMethod" ColumnName="DefaultPaymentMethod" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item">
+            <EntityTypeMapping TypeName="TTDBModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="LowStockWarningLevel" ColumnName="LowStockWarningLevel" />
+                <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+                <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+                <ScalarProperty Name="ItemDesc" ColumnName="ItemDesc" />
+                <ScalarProperty Name="DaysToMake" ColumnName="DaysToMake" />
+                <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+                <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ItemGUID" ColumnName="ItemGUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemPicture">
+            <EntityTypeMapping TypeName="TTDBModel.ItemPicture">
+              <MappingFragment StoreEntitySet="ItemPicture">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="PictureID" ColumnName="PictureID" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemSize">
+            <EntityTypeMapping TypeName="TTDBModel.ItemSize">
+              <MappingFragment StoreEntitySet="ItemSize">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+                <ScalarProperty Name="StockLevel" ColumnName="StockLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="TTDBModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+                <ScalarProperty Name="MaterialDesc" ColumnName="MaterialDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Occasion">
+            <EntityTypeMapping TypeName="TTDBModel.Occasion">
+              <MappingFragment StoreEntitySet="Occasion">
+                <ScalarProperty Name="OccasionID" ColumnName="OccasionID" />
+                <ScalarProperty Name="OccasionName" ColumnName="OccasionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Picture">
+            <EntityTypeMapping TypeName="TTDBModel.Picture">
+              <MappingFragment StoreEntitySet="Picture">
+                <ScalarProperty Name="PictureID" ColumnName="PictureID" />
+                <ScalarProperty Name="ThumbnailPic" ColumnName="ThumbnailPic" />
+                <ScalarProperty Name="LargePictureAddress" ColumnName="LargePictureAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrderHeader">
+            <EntityTypeMapping TypeName="TTDBModel.SalesOrderHeader">
+              <MappingFragment StoreEntitySet="SalesOrderHeader">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+                <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+                <ScalarProperty Name="CreditCardID" ColumnName="CreditCardID" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+                <ScalarProperty Name="Freight" ColumnName="Freight" />
+                <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+                <ScalarProperty Name="SalesOrderGUID" ColumnName="SalesOrderGUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesOrderRow">
+            <EntityTypeMapping TypeName="TTDBModel.SalesOrderRow">
+              <MappingFragment StoreEntitySet="SalesOrderRow">
+                <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+                <ScalarProperty Name="SalesOrderRowID" ColumnName="SalesOrderRowID" />
+                <ScalarProperty Name="CarrierTrackingNumber" ColumnName="CarrierTrackingNumber" />
+                <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+                <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+                <ScalarProperty Name="SalesOrderRowGUID" ColumnName="SalesOrderRowGUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShipMethod">
+            <EntityTypeMapping TypeName="TTDBModel.ShipMethod">
+              <MappingFragment StoreEntitySet="ShipMethod">
+                <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TrackingURL" ColumnName="TrackingURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Size">
+            <EntityTypeMapping TypeName="TTDBModel.Size">
+              <MappingFragment StoreEntitySet="Size">
+                <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+                <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateProvince">
+            <EntityTypeMapping TypeName="TTDBModel.StateProvince">
+              <MappingFragment StoreEntitySet="StateProvince">
+                <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+                <ScalarProperty Name="StateProvinceCode" ColumnName="StateProvinceCode" />
+                <ScalarProperty Name="CountryRegionCode" ColumnName="CountryRegionCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StateProvinceGUID" ColumnName="StateProvinceGUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Style">
+            <EntityTypeMapping TypeName="TTDBModel.Style">
+              <MappingFragment StoreEntitySet="Style">
+                <ScalarProperty Name="StyleID" ColumnName="StyleID" />
+                <ScalarProperty Name="StyleName" ColumnName="StyleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TTDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Favourites" TypeName="TTDBModel.Favourites" StoreEntitySet="Favourites">
+            <EndProperty Name="Customer">
+              <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            </EndProperty>
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ItemColor" TypeName="TTDBModel.ItemColor" StoreEntitySet="ItemColor">
+            <EndProperty Name="Color">
+              <ScalarProperty Name="ColorID" ColumnName="ColorID" />
+            </EndProperty>
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ItemMaterial" TypeName="TTDBModel.ItemMaterial" StoreEntitySet="ItemMaterial">
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            </EndProperty>
+            <EndProperty Name="Material">
+              <ScalarProperty Name="MaterialID" ColumnName="MaterialID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ItemOccasion" TypeName="TTDBModel.ItemOccasion" StoreEntitySet="ItemOccasion">
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            </EndProperty>
+            <EndProperty Name="Occasion">
+              <ScalarProperty Name="OccasionID" ColumnName="OccasionID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ItemStyle" TypeName="TTDBModel.ItemStyle" StoreEntitySet="ItemStyle">
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            </EndProperty>
+            <EndProperty Name="Style">
+              <ScalarProperty Name="StyleID" ColumnName="StyleID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ShoppingCart" TypeName="TTDBModel.ShoppingCart" StoreEntitySet="ShoppingCart">
+            <EndProperty Name="Customer">
+              <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            </EndProperty>
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

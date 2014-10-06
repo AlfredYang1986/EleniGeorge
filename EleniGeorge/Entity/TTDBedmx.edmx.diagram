@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8258959e6c034ae9ba295b1003562758" Name="Diagram1">
+        <EntityTypeShape EntityType="TTDBModel.Address" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.Color" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.ColorMapping" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.CountryRegion" Width="1.5" PointX="1.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.CreditCard" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.Customer" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.Item" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.ItemPicture" Width="1.5" PointX="10.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.ItemSize" Width="1.5" PointX="10.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.Material" Width="1.5" PointX="7.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.Occasion" Width="1.5" PointX="7.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.Picture" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.SalesOrderHeader" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.SalesOrderRow" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.ShipMethod" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.Size" Width="1.5" PointX="8.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.StateProvince" Width="1.5" PointX="3.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.Style" Width="1.5" PointX="7.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TTDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="TTDBModel.FK_Address_StateProvince" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_SalesOrderHeader_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_SalesOrderHeader_Address1" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_ColorMapping_Color" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_StateProvince_CountryRegion" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_Customer_CreditCard" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_SalesOrderHeader_CreditCard" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_SalesOrderHeader_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_ItemPicture_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_ItemSize_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_SalesOrderRow_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_ItemPicture_Picture" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_ItemSize_Size" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_SalesOrderHeader_ShipMethod" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.FK_SalesOrderRow_SalesOrderHeader" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.Favourites" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.ItemColor" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.ItemMaterial" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.ItemOccasion" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.ItemStyle" ManuallyRouted="false" />
+        <AssociationConnector Association="TTDBModel.ShoppingCart" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

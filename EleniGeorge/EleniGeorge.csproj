@@ -44,6 +44,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -183,6 +185,78 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Entity\Address.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Color.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ColorMapping.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CountryRegion.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CreditCard.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Customer.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Item.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ItemPicture.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ItemSize.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Material.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Occasion.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Picture.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SalesOrderHeader.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SalesOrderRow.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ShipMethod.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Size.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\StateProvince.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Style.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sysdiagrams.cs">
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TTDBedmx.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTDBedmx.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TTDBedmx.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TTDBedmx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTDBedmx.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,6 +327,23 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <EntityDeploy Include="Entity\TTDBedmx.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TTDBedmx.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\TTDBedmx.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TTDBedmx.edmx</DependentUpon>
+      <LastGenOutput>TTDBedmx.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\TTDBedmx.edmx.diagram">
+      <DependentUpon>TTDBedmx.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entity\TTDBedmx.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TTDBedmx.edmx</DependentUpon>
+      <LastGenOutput>TTDBedmx.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\landingpage.jpg" />
     <Content Include="Images\TestImages\01.jpg" />
@@ -329,6 +420,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PayPalComponent\PayPalComponent.csproj">
+      <Project>{7239e9ae-9fb3-48b9-a36e-e23b97d4ac80}</Project>
+      <Name>PayPalComponent</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
