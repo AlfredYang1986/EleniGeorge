@@ -177,6 +177,7 @@ namespace PayPalComponent
             cp.payer_id = payerid;
             h_request.Content = new StringContent(JsonConvert.SerializeObject(cp), UTF8Encoding.UTF8, "application/json");
 
+            var strTest = @"";
             try
             {
                 HttpResponseMessage response = await client.SendAsync(h_request);
@@ -188,7 +189,7 @@ namespace PayPalComponent
                     // TODO: error handling
                 }
 
-                var strTest = await response.Content.ReadAsStringAsync();
+                strTest = await response.Content.ReadAsStringAsync();
 
                 dynamic t = JsonConvert.DeserializeObject(strTest);
                 System.Console.WriteLine(t);
@@ -196,16 +197,18 @@ namespace PayPalComponent
             catch (Exception ex)
             {
                 System.Console.WriteLine(ex);
-                throw new HttpRequestException("Request to PayPal Service failed.");
+                //throw new HttpRequestException("Request to PayPal Service failed.");
+                return strTest;
             }
 
+            //return @"success";
             return @"success";
         }
 
         /************************************************************************/
         /* 4. list all payments                                                 */
         /************************************************************************/
-        public async void paypal_list_payments(string access_token)
+        public async Task<string> paypal_list_payments(string access_token)
         {
             HttpClient client = new HttpClient();
             //construct request message
@@ -228,6 +231,7 @@ namespace PayPalComponent
 
                 dynamic t = JsonConvert.DeserializeObject(strTest);
                 System.Console.WriteLine(t);
+                return strTest;
             }
             catch (Exception ex)
             {

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using EleniGeorge.Models;
+using PayPalComponent;
 
 namespace EleniGeorge.Controllers
 {
@@ -34,10 +36,10 @@ namespace EleniGeorge.Controllers
 
         // GET: /Profile
 
-        public ActionResult Profile()
-        {
-            return View();
-        }
+        //public ActionResult Profile()
+        //{
+        //    return View();
+        //}
 
         // POST: /Search
 
@@ -51,6 +53,37 @@ namespace EleniGeorge.Controllers
         public ActionResult ProductDetail(int itemID)
         {
             return null;
+        }
+
+        // Get: /PayPalPayment
+
+        public async Task<ActionResult> PayPalPayment(double price)
+        {
+            var approal_url = await PayPalPaymentFacad.createPayment(price.ToString(), @"Alfred Test"
+                                        , @"http://localhost:1053/Home/ConfirmPayment"
+                                        , @"http://localhost:1053/Home/CancelPayment");
+            return Redirect(approal_url);
+        }
+
+        // Get: /ConfirmPayment
+
+        public async Task<string> ConfirmPayment(string token, string PayerID)
+        {
+            return await PayPalPaymentFacad.executePayment(token, PayerID);
+        }
+
+        // Get: /CancelPayment
+
+        public ActionResult CancelPayment()
+        {
+            return null;
+        }
+
+        // Get: /ListAllPayments
+
+        public async Task<string> ListAllPayments()
+        {
+            return await PayPalPaymentFacad.listAllPayments();
         }
 
         public ActionResult About()

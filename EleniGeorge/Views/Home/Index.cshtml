@@ -26,6 +26,11 @@
             $(".item").click(function () {
                 $("#md").modal();
             });
+
+
+            $("#buy").click(function () {
+                window.location.href = "/Home/PayPalPayment?price=1.0";
+            });
         });
     </script>
 }

@@ -10,7 +10,7 @@ namespace PayPalComponent
 {
     public class PayPalPaymentFacad
     {
-        public static IDictionary<string, JObject> _dic;
+        public static IDictionary<string, JObject> _dic = new Dictionary<string, JObject>();
         private static string clientid = @"AY_A0xDHhUk_60Sin0IbCEwYWNFyyh0VBnke55ebkEp4fHFfoZyqrzfuoMcE";
         private static string scret = @"EKe1FhCvKYDHfKxHTw1JGfhJrjNOKgXfSYqPCeplUmxPR3X0sH05JCv-mkuT";
 
@@ -30,7 +30,8 @@ namespace PayPalComponent
                 var access_token = await client.paypal_access_token_2(clientid, scret);
                 var create_result = await client.paypal_create_payment(access_token, amount, des, returnUrl, cancelUrl);
                 dynamic reVal = JsonConvert.DeserializeObject(create_result);
-                _dic.Add(getApproalTokenFromResult(reVal), reVal);
+                //_dic.Add(getApproalTokenFromResult(reVal), reVal);
+                _dic.Add(access_token, reVal);
                 return getApproalUrl(reVal.links);
             }
         }
@@ -66,16 +67,33 @@ namespace PayPalComponent
 
         private static string getExecuteUrlAndAccessTokenByToken(ref string access_token, string token)
         {
-            dynamic obj = _dic[token];
+            var result = from item in _dic
+                         where getApproalTokenFromResult(item.Value) == token
+                         select item;
 
-            access_token = obj.id;
-            return getExecuteUrl(obj.links);
+            if (result.Count() > 0)
+            {
+                var re = result.FirstOrDefault();
+                access_token = re.Key;
+                dynamic reObj = re.Value;
+                return getExecuteUrl(reObj.links);
+            }
+            return null;
         }
 
         private static string getApproalTokenFromResult(dynamic result)
         {
             string url = getApproalUrl(result.links);
             return url.Split('=').Last().Trim();
+        }
+
+        public async static Task<string> listAllPayments()
+        {
+            using (var client = PayPalRestfulClient.getPayPalClientInstance())
+            {
+                var access_token = await client.paypal_access_token_2(clientid, scret);
+                return await client.paypal_list_payments(access_token);
+            }
         }
     }
 }
