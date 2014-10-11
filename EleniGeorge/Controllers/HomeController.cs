@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using EleniGeorge.Models;
 using PayPalComponent;
+using EleniGeorge.Models.ShoppingBag;
+using EleniGeorge.Models.Orders;
 
 namespace EleniGeorge.Controllers
 {
@@ -84,6 +86,22 @@ namespace EleniGeorge.Controllers
         public async Task<string> ListAllPayments()
         {
             return await PayPalPaymentFacad.listAllPayments();
+        }
+
+        // Get: /ShoppingBag?ClientID={id}
+
+        public ActionResult ShoppingBag(string ClientID)
+        {
+            var model = new ShoppingBagModel(ClientID);
+            return View(model);
+        }
+
+        // Get: /ListOrders?ClientID={id}
+
+        public ActionResult ListOrders(string ClientID)
+        {
+            var model = new OrdersModel(ClientID);
+            return View(model);
         }
 
         public ActionResult About()

@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace EleniGeorge.Models
+namespace EleniGeorge.Models.Orders
 {
-    public class GalleryItem
-    {
-        public string name;
-        public string imgUrl;
-        public double price;
-    }
-
-    public class ItemGalleryModel
+    public class OrdersModel
     {
         private IEnumerable<GalleryItem> _itmes;
 
-        public ItemGalleryModel()
+        public OrdersModel(string clientID)
         {
+            // get item from database var clientID
+
             _itmes = new List<GalleryItem>()
             {
                 new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/01.jpg", price = 99.88},

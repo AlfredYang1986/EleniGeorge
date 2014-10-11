@@ -263,12 +263,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\CategoryModel.cs" />
-    <Compile Include="Models\ColorModel.cs" />
-    <Compile Include="Models\HomeIndexModel.cs" />
-    <Compile Include="Models\ItemGalleryModel.cs" />
-    <Compile Include="Models\SiderBarModel.cs" />
-    <Compile Include="Models\SizeModel.cs" />
+    <Compile Include="Models\GalleryItem.cs" />
+    <Compile Include="Models\HomePage\CategoryModel.cs" />
+    <Compile Include="Models\HomePage\ColorModel.cs" />
+    <Compile Include="Models\HomePage\HomeIndexModel.cs" />
+    <Compile Include="Models\HomePage\ItemGalleryModel.cs" />
+    <Compile Include="Models\HomePage\SiderBarModel.cs" />
+    <Compile Include="Models\HomePage\SizeModel.cs" />
+    <Compile Include="Models\Orders\OrdersModel.cs" />
+    <Compile Include="Models\ShoppingBag\ShoppingBagModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -414,6 +417,8 @@
     <Content Include="Views\Home\_IndexRouteLine.cshtml" />
     <Content Include="Views\Home\SignInView.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\Home\ShoppingBag.cshtml" />
+    <Content Include="Views\Home\ListOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

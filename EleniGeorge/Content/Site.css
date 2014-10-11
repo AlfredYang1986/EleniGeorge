@@ -614,6 +614,10 @@ a#otView:hover {
     text-decoration: none;
 }
 
+.tabborder {
+    border: 1px solid #808080;
+}
+
 /********************
 *   Mobile Styles   *
 ********************/

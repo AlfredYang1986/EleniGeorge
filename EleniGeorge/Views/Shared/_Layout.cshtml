@@ -26,7 +26,7 @@
                             <span class="glyphicon glyphicon-minus"></span>
                         </p>
                     </div>
-                    <div class="pull-right">
+                    <div id="mybag" class="pull-right">
                         <div class="pull-left row">
                             <p style="color:white"><span class="glyphicon glyphicon-lock"></span>My Bag(0): 0000.00</p>
                         </div>
@@ -118,6 +118,10 @@
 
                 $("#reg").click(function () {
                     window.location.href = "/Home/Profile"
+                });
+
+                $("#mybag").click(function () {
+                    window.location.href = "/Home/ShoppingBag?ClientID=ABCDE"
                 });
             });
         </script>
