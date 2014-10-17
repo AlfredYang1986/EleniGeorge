@@ -12,12 +12,16 @@ namespace EleniGeorge.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class Category
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public Category()
+        {
+            this.Item = new HashSet<Item>();
+        }
+    
+        public int CategoryID { get; set; }
+        public string Category1 { get; set; }
+    
+        public virtual ICollection<Item> Item { get; set; }
     }
 }

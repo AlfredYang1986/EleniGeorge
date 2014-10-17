@@ -20,6 +20,7 @@ namespace EleniGeorge.Entity
             this.ItemSize = new HashSet<ItemSize>();
             this.SalesOrderRow = new HashSet<SalesOrderRow>();
             this.Customer = new HashSet<Customer>();
+            this.Category = new HashSet<Category>();
             this.Color = new HashSet<Color>();
             this.Material = new HashSet<Material>();
             this.Occasion = new HashSet<Occasion>();
@@ -39,12 +40,14 @@ namespace EleniGeorge.Entity
         public Nullable<System.DateTime> SellEndDate { get; set; }
         public int CategoryID { get; set; }
         public string Gender { get; set; }
-        public int ItemGUID { get; set; }
+        public string ItemGUID { get; set; }
+        public int Length { get; set; }
     
         public virtual ICollection<ItemPicture> ItemPicture { get; set; }
         public virtual ICollection<ItemSize> ItemSize { get; set; }
         public virtual ICollection<SalesOrderRow> SalesOrderRow { get; set; }
         public virtual ICollection<Customer> Customer { get; set; }
+        public virtual ICollection<Category> Category { get; set; }
         public virtual ICollection<Color> Color { get; set; }
         public virtual ICollection<Material> Material { get; set; }
         public virtual ICollection<Occasion> Occasion { get; set; }

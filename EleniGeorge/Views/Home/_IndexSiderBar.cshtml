@@ -13,7 +13,7 @@
             <li style="margin-left: -20px">
                 <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
                     <label style="padding-left: 0px; font-size:0.8em">
-                        <input type="checkbox">@Model.catetegories.categories.ElementAt(index)
+                        <input class="searchClick" data-type="cat" data-value="@Model.catetegories.categories.ElementAt(index)" type="checkbox">@Model.catetegories.categories.ElementAt(index)
                     </label>
                 </div>
     	    </li>   
@@ -29,7 +29,7 @@
             <li class="pull-left" style="margin-left: 0px; width: 33%;">
                 <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
                     <label style="padding-left: 0px; font-size:0.8em">
-                        <input type="checkbox">@item
+                        <input class="searchClick" data-type="size" data-value="@item" type="checkbox">@item
                     </label>
                 </div>
     	    </li>   
@@ -45,7 +45,7 @@
             <li class="pull-left" style="margin-left: 0px; width: 33%">
                 <div class="checkbox" style="margin-top: 0px; margin-bottom: 0px">
                     <label style="padding-left: 0px; font-size:0.7em">
-                        <input type="checkbox">@item
+                        <input class="searchClick" data-type="color" data-value="@item" type="checkbox">@item
                     </label>
                 </div>
     	    </li>   

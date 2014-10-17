@@ -16,6 +16,7 @@ namespace EleniGeorge.Entity
     {
         public Address()
         {
+            this.Customer = new HashSet<Customer>();
             this.SalesOrderHeader = new HashSet<SalesOrderHeader>();
             this.SalesOrderHeader1 = new HashSet<SalesOrderHeader>();
         }
@@ -30,6 +31,7 @@ namespace EleniGeorge.Entity
         public System.Guid AddressGUID { get; set; }
     
         public virtual StateProvince StateProvince { get; set; }
+        public virtual ICollection<Customer> Customer { get; set; }
         public virtual ICollection<SalesOrderHeader> SalesOrderHeader { get; set; }
         public virtual ICollection<SalesOrderHeader> SalesOrderHeader1 { get; set; }
     }

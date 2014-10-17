@@ -72,9 +72,9 @@
                         </ul>
                         <div class="col-lg-2 navbar-right navbar-form">
                             <div class="input-group">
-                                <input type="text" class="form-control">
+                                <input id="searchInput" type="text" class="form-control">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></button>
+                                    <button id="researchButton" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></button>
                                 </span>
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
@@ -122,6 +122,32 @@
 
                 $("#mybag").click(function () {
                     window.location.href = "/Home/ShoppingBag?ClientID=ABCDE"
+                });
+
+                $("#researchButton").click(function () {
+                    sv.reSet();
+                    sv.setInputString($("#searchInput")[0].value);
+
+                    $.ajax({
+                        url: '/Home/Search',
+                        type: 'POST',
+                        dataType: 'html',
+                        contentType: 'application/json, charset=utf-8',
+                        data: JSON.stringify(sv.toJson()),
+                        cache: false,
+                        //beforeSend: function () {
+                        //    Loading();
+                        //},
+                        //complete: function () {
+                        //    hiddenLoading();
+                        //},
+                        success: function (data) {
+                            $("#resultGallery").html(data);
+                        },
+                        error: function (xhr, status, error) {
+                            alert(error);
+                        }
+                    });
                 });
             });
         </script>

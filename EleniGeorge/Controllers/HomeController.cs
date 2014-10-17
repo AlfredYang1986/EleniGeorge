@@ -8,6 +8,10 @@ using EleniGeorge.Models;
 using PayPalComponent;
 using EleniGeorge.Models.ShoppingBag;
 using EleniGeorge.Models.Orders;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using EleniGeorge.Entity;
+using System.Linq.Expressions;
 
 namespace EleniGeorge.Controllers
 {
@@ -46,10 +50,95 @@ namespace EleniGeorge.Controllers
         // POST: /Search
 
         [HttpPost]
-        public ActionResult Search(string strBrand)
+        public ActionResult Search(string data)
         {
             //return PartialView();
-            return null;
+            dynamic sd = JsonConvert.DeserializeObject(data);
+
+            using (var db = new TTDBEntities())
+            {
+                IEnumerable<Item> result = db.Item;
+
+                /************************************************************************/
+                /* 1. Category                                                          */
+                /************************************************************************/
+                JArray catArr_tmp = sd.cats;
+                var catArr = from it in catArr_tmp
+                             select new string(it.ToString().ToCharArray());
+
+                foreach (var cat in catArr)
+                {
+                    result = from it in result
+                             where it.Category.Any(x => x.Category1.ToLower() == cat.ToLower())
+                             select it;
+                }
+
+                /************************************************************************/
+                /* 2. Color                                                             */
+                /************************************************************************/
+                JArray colArr_tmp = sd.colors;
+                var colArr = from it in colArr_tmp 
+                             select new string(it.ToString().ToCharArray());
+
+                foreach (var col in colArr)
+                {
+                    result = from it in result
+                             where it.Color.Any(x => x.ColorName.ToLower() == col.ToLower())
+                             select it;
+                }
+
+                /************************************************************************/
+                /* 3. Size                                                              */
+                /************************************************************************/
+                JArray sizeArr_tmp = sd.sizes;
+                var sizeArr = from it in sizeArr_tmp 
+                             select new string(it.ToString().ToCharArray());
+
+                foreach (var size in sizeArr)
+                {
+                    result = from it in result
+                             where it.ItemSize.Any(x => x.Size.SizeName.ToString().ToLower() == size.ToLower())
+                             select it;
+                }
+
+                /************************************************************************/
+                /* 4. Search Input                                                      */
+                /************************************************************************/
+                string input = sd.input;
+
+                /************************************************************************/
+                /* 4.1 find category                                                    */
+                /************************************************************************/
+                var cat_candi = new CategoryModel();
+                if (cat_candi.categories.Any(x => x.ToLower() == input.ToLower()))
+                {
+                    result = from it in result
+                             where it.Category.Any(x => x.Category1.ToLower() == input.ToLower())
+                             select it;
+                }
+
+                /************************************************************************/
+                /* 4.2 find color                                                       */
+                /************************************************************************/
+                var col_candi = new ColorModel();
+                if (col_candi.colors.Any(x => x.ToLower() == input.ToLower()))
+                {
+                    result = from it in result
+                             where it.Color.Any(x => x.ColorName.ToLower() == input.ToLower())
+                             select it;
+                }
+
+                var reVal = (from it in result
+                             select new GalleryItem()
+                             {
+                                name = it.Name,
+                                imgUrl = it.ItemPicture.FirstOrDefault(x => x.IsDefault)
+                                            .Picture.LargePictureAddress,
+                                price = it.ListPrice.HasValue ? it.ListPrice.Value : 0.0
+                             }).ToList();
+
+                return PartialView("_IndexItemGallery", new ItemGalleryModel(reVal));
+            }
         }
 
         public ActionResult ProductDetail(int itemID)

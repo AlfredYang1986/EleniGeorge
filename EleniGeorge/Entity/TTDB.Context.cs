@@ -26,6 +26,7 @@ namespace EleniGeorge.Entity
         }
     
         public DbSet<Address> Address { get; set; }
+        public DbSet<Category> Category { get; set; }
         public DbSet<Color> Color { get; set; }
         public DbSet<ColorMapping> ColorMapping { get; set; }
         public DbSet<CountryRegion> CountryRegion { get; set; }
@@ -43,6 +44,6 @@ namespace EleniGeorge.Entity
         public DbSet<Size> Size { get; set; }
         public DbSet<StateProvince> StateProvince { get; set; }
         public DbSet<Style> Style { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<SubCategory> SubCategory { get; set; }
     }
 }

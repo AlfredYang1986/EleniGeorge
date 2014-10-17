@@ -11,13 +11,16 @@
         @Html.Partial("_IndexSiderBar", @Model.siderbar)
     </div>
 
-    <div class="col-lg-10">
+    <div id="resultGallery" class="col-lg-10">
         @Html.Partial("_IndexItemGallery", @Model.items)
     </div>
 </div>
 
 @section scripts {
+    <script src="~/Scripts/SearchLogic.js"></script>
     <script type="text/javascript">
+        var sv = new SearchLogic();
+
         $(function () {
             $("#sidebar-cate").css("height", $("#sidebar-cate > ul > li").size() * 20 + 25);
             $("#sidebar-size").css("height", $("#sidebar-size > ul > li").size() / 3 * 20 + 25);
@@ -30,6 +33,48 @@
 
             $("#buy").click(function () {
                 window.location.href = "/Home/PayPalPayment?price=1.0";
+            });
+
+            $(".searchClick").click(function () {
+                sv.reSet();
+
+                $.each($(".searchClick[data-type=cat]"), function (index, item) {
+                    if ($(item)[0].checked)
+                        sv.addCat($(item).attr("data-value"));
+                });
+
+                $.each($(".searchClick[data-type=size]"), function (index, item) {
+                    if ($(item)[0].checked)
+                        sv.addSize($(item).attr("data-value"));
+                });
+
+                $.each($(".searchClick[data-type=color]"), function (indxe, item) {
+                    if ($(item)[0].checked)
+                        sv.addColor($(item).attr("data-value"));
+                });
+
+                sv.setInputString($("#searchInput")[0].value);
+
+                $.ajax({
+                    url: '/Home/Search',
+                    type: 'POST',
+                    dataType: 'html',
+                    contentType: 'application/json, charset=utf-8',
+                    data: JSON.stringify(sv.toJson()),
+                    cache: false,
+                    //beforeSend: function () {
+                    //    Loading();
+                    //},
+                    //complete: function () {
+                    //    hiddenLoading();
+                    //},
+                    success: function (data) {
+                        $("#resultGallery").html(data);
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
             });
         });
     </script>

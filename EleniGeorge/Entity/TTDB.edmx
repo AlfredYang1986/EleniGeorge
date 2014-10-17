@@ -7,6 +7,7 @@
       <Schema Namespace="TTDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="TTDBModelStoreContainer">
           <EntitySet Name="Address" EntityType="TTDBModel.Store.Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="TTDBModel.Store.Category" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Color" EntityType="TTDBModel.Store.Color" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ColorMapping" EntityType="TTDBModel.Store.ColorMapping" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CountryRegion" EntityType="TTDBModel.Store.CountryRegion" store:Type="Tables" Schema="dbo" />
@@ -14,6 +15,7 @@
           <EntitySet Name="Customer" EntityType="TTDBModel.Store.Customer" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Favourites" EntityType="TTDBModel.Store.Favourites" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Item" EntityType="TTDBModel.Store.Item" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ItemCategory" EntityType="TTDBModel.Store.ItemCategory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ItemColor" EntityType="TTDBModel.Store.ItemColor" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ItemMaterial" EntityType="TTDBModel.Store.ItemMaterial" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ItemOccasion" EntityType="TTDBModel.Store.ItemOccasion" store:Type="Tables" Schema="dbo" />
@@ -30,7 +32,7 @@
           <EntitySet Name="Size" EntityType="TTDBModel.Store.Size" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="StateProvince" EntityType="TTDBModel.Store.StateProvince" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Style" EntityType="TTDBModel.Store.Style" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="TTDBModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubCategory" EntityType="TTDBModel.Store.SubCategory" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_Address_StateProvince" Association="TTDBModel.Store.FK_Address_StateProvince">
             <End Role="StateProvince" EntitySet="StateProvince" />
             <End Role="Address" EntitySet="Address" />
@@ -38,6 +40,10 @@
           <AssociationSet Name="FK_ColorMapping_Color" Association="TTDBModel.Store.FK_ColorMapping_Color">
             <End Role="Color" EntitySet="Color" />
             <End Role="ColorMapping" EntitySet="ColorMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Address" Association="TTDBModel.Store.FK_Customer_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Customer" EntitySet="Customer" />
           </AssociationSet>
           <AssociationSet Name="FK_Customer_CreditCard" Association="TTDBModel.Store.FK_Customer_CreditCard">
             <End Role="CreditCard" EntitySet="CreditCard" />
@@ -50,6 +56,14 @@
           <AssociationSet Name="FK_Favourites_Item" Association="TTDBModel.Store.FK_Favourites_Item">
             <End Role="Item" EntitySet="Item" />
             <End Role="Favourites" EntitySet="Favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCategory_Category" Association="TTDBModel.Store.FK_ItemCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ItemCategory" EntitySet="ItemCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItemCategory_Item" Association="TTDBModel.Store.FK_ItemCategory_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ItemCategory" EntitySet="ItemCategory" />
           </AssociationSet>
           <AssociationSet Name="FK_ItemColor_Color" Association="TTDBModel.Store.FK_ItemColor_Color">
             <End Role="Color" EntitySet="Color" />
@@ -153,6 +167,13 @@
           <Property Name="SpatialLocation" Type="geography" />
           <Property Name="AddressGUID" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Color">
           <Key>
             <PropertyRef Name="ColorID" />
@@ -199,6 +220,7 @@
           <Property Name="PaypalAccount" Type="nchar" MaxLength="10" />
           <Property Name="DefaultPaymentMethod" Type="nchar" MaxLength="10" />
           <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="AddressID" Type="int" />
         </EntityType>
         <EntityType Name="Favourites">
           <Key>
@@ -224,7 +246,16 @@
           <Property Name="SellEndDate" Type="datetime" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="Gender" Type="char" Nullable="false" MaxLength="1" />
-          <Property Name="ItemGUID" Type="int" Nullable="false" />
+          <Property Name="ItemGUID" Type="varchar" Nullable="false" MaxLength="35" />
+          <Property Name="Length" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemCategory">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ItemColor">
           <Key>
@@ -375,15 +406,13 @@
           <Property Name="StyleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="StyleName" Type="varchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="SubCategory">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="SubCategoryID" />
           </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="SubCategoryID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Address_StateProvince">
           <End Role="StateProvince" Type="TTDBModel.Store.StateProvince" Multiplicity="1" />
@@ -406,6 +435,18 @@
             </Principal>
             <Dependent Role="ColorMapping">
               <PropertyRef Name="ColorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Address">
+          <End Role="Address" Type="TTDBModel.Store.Address" Multiplicity="0..1" />
+          <End Role="Customer" Type="TTDBModel.Store.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="AddressID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -441,6 +482,30 @@
               <PropertyRef Name="ItemID" />
             </Principal>
             <Dependent Role="Favourites">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCategory_Category">
+          <End Role="Category" Type="TTDBModel.Store.Category" Multiplicity="1" />
+          <End Role="ItemCategory" Type="TTDBModel.Store.ItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="ItemCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItemCategory_Item">
+          <End Role="Item" Type="TTDBModel.Store.Item" Multiplicity="1" />
+          <End Role="ItemCategory" Type="TTDBModel.Store.ItemCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ItemID" />
+            </Principal>
+            <Dependent Role="ItemCategory">
               <PropertyRef Name="ItemID" />
             </Dependent>
           </ReferentialConstraint>
@@ -716,6 +781,7 @@
       <Schema Namespace="TTDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="TTDBEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Address" EntityType="TTDBModel.Address" />
+          <EntitySet Name="Category" EntityType="TTDBModel.Category" />
           <EntitySet Name="Color" EntityType="TTDBModel.Color" />
           <EntitySet Name="ColorMapping" EntityType="TTDBModel.ColorMapping" />
           <EntitySet Name="CountryRegion" EntityType="TTDBModel.CountryRegion" />
@@ -733,10 +799,14 @@
           <EntitySet Name="Size" EntityType="TTDBModel.Size" />
           <EntitySet Name="StateProvince" EntityType="TTDBModel.StateProvince" />
           <EntitySet Name="Style" EntityType="TTDBModel.Style" />
-          <EntitySet Name="sysdiagrams" EntityType="TTDBModel.sysdiagrams" />
+          <EntitySet Name="SubCategory" EntityType="TTDBModel.SubCategory" />
           <AssociationSet Name="FK_Address_StateProvince" Association="TTDBModel.FK_Address_StateProvince">
             <End Role="StateProvince" EntitySet="StateProvince" />
             <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Address" Association="TTDBModel.FK_Customer_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Customer" EntitySet="Customer" />
           </AssociationSet>
           <AssociationSet Name="FK_SalesOrderHeader_Address" Association="TTDBModel.FK_SalesOrderHeader_Address">
             <End Role="Address" EntitySet="Address" />
@@ -798,6 +868,10 @@
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Item" EntitySet="Item" />
           </AssociationSet>
+          <AssociationSet Name="ItemCategory" Association="TTDBModel.ItemCategory">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
           <AssociationSet Name="ItemColor" Association="TTDBModel.ItemColor">
             <End Role="Color" EntitySet="Color" />
             <End Role="Item" EntitySet="Item" />
@@ -832,8 +906,17 @@
           <Property Name="SpatialLocation" Type="Geography" />
           <Property Name="AddressGUID" Type="Guid" Nullable="false" />
           <NavigationProperty Name="StateProvince" Relationship="TTDBModel.FK_Address_StateProvince" FromRole="Address" ToRole="StateProvince" />
+          <NavigationProperty Name="Customer" Relationship="TTDBModel.FK_Customer_Address" FromRole="Address" ToRole="Customer" />
           <NavigationProperty Name="SalesOrderHeader" Relationship="TTDBModel.FK_SalesOrderHeader_Address" FromRole="Address" ToRole="SalesOrderHeader" />
           <NavigationProperty Name="SalesOrderHeader1" Relationship="TTDBModel.FK_SalesOrderHeader_Address1" FromRole="Address" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Category1" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Item" Relationship="TTDBModel.ItemCategory" FromRole="Category" ToRole="Item" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -887,6 +970,8 @@
           <Property Name="PaypalAccount" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="DefaultPaymentMethod" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="Phone" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="AddressID" Type="Int32" />
+          <NavigationProperty Name="Address" Relationship="TTDBModel.FK_Customer_Address" FromRole="Customer" ToRole="Address" />
           <NavigationProperty Name="CreditCard" Relationship="TTDBModel.FK_Customer_CreditCard" FromRole="Customer" ToRole="CreditCard" />
           <NavigationProperty Name="SalesOrderHeader" Relationship="TTDBModel.FK_SalesOrderHeader_Customer" FromRole="Customer" ToRole="SalesOrderHeader" />
           <NavigationProperty Name="Item" Relationship="TTDBModel.Favourites" FromRole="Customer" ToRole="Item" />
@@ -908,11 +993,13 @@
           <Property Name="SellEndDate" Type="DateTime" Precision="3" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="true" />
-          <Property Name="ItemGUID" Type="Int32" Nullable="false" />
+          <Property Name="ItemGUID" Type="String" Nullable="false" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="Length" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ItemPicture" Relationship="TTDBModel.FK_ItemPicture_Item" FromRole="Item" ToRole="ItemPicture" />
           <NavigationProperty Name="ItemSize" Relationship="TTDBModel.FK_ItemSize_Item" FromRole="Item" ToRole="ItemSize" />
           <NavigationProperty Name="SalesOrderRow" Relationship="TTDBModel.FK_SalesOrderRow_Item" FromRole="Item" ToRole="SalesOrderRow" />
           <NavigationProperty Name="Customer" Relationship="TTDBModel.Favourites" FromRole="Item" ToRole="Customer" />
+          <NavigationProperty Name="Category" Relationship="TTDBModel.ItemCategory" FromRole="Item" ToRole="Category" />
           <NavigationProperty Name="Color" Relationship="TTDBModel.ItemColor" FromRole="Item" ToRole="Color" />
           <NavigationProperty Name="Material" Relationship="TTDBModel.ItemMaterial" FromRole="Item" ToRole="Material" />
           <NavigationProperty Name="Occasion" Relationship="TTDBModel.ItemOccasion" FromRole="Item" ToRole="Occasion" />
@@ -1048,15 +1135,13 @@
           <Property Name="StyleName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Item" Relationship="TTDBModel.ItemStyle" FromRole="Style" ToRole="Item" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="SubCategory">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="SubCategoryID" />
           </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="SubCategoryID" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_Address_StateProvince">
           <End Role="StateProvince" Type="TTDBModel.StateProvince" Multiplicity="1" />
@@ -1067,6 +1152,18 @@
             </Principal>
             <Dependent Role="Address">
               <PropertyRef Name="StateProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Address">
+          <End Role="Address" Type="TTDBModel.Address" Multiplicity="0..1" />
+          <End Role="Customer" Type="TTDBModel.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="AddressID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1242,6 +1339,10 @@
           <End Role="Customer" Type="TTDBModel.Customer" Multiplicity="*" />
           <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
         </Association>
+        <Association Name="ItemCategory">
+          <End Role="Category" Type="TTDBModel.Category" Multiplicity="*" />
+          <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
+        </Association>
         <Association Name="ItemColor">
           <End Role="Color" Type="TTDBModel.Color" Multiplicity="*" />
           <End Role="Item" Type="TTDBModel.Item" Multiplicity="*" />
@@ -1279,6 +1380,14 @@
                 <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
                 <ScalarProperty Name="SpatialLocation" ColumnName="SpatialLocation" />
                 <ScalarProperty Name="AddressGUID" ColumnName="AddressGUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="TTDBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Category1" ColumnName="Category" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1330,6 +1439,7 @@
                 <ScalarProperty Name="PaypalAccount" ColumnName="PaypalAccount" />
                 <ScalarProperty Name="DefaultPaymentMethod" ColumnName="DefaultPaymentMethod" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1349,6 +1459,7 @@
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="ItemGUID" ColumnName="ItemGUID" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1469,20 +1580,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TTDBModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+          <EntitySetMapping Name="SubCategory">
+            <EntityTypeMapping TypeName="TTDBModel.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="Favourites" TypeName="TTDBModel.Favourites" StoreEntitySet="Favourites">
             <EndProperty Name="Customer">
               <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            </EndProperty>
+            <EndProperty Name="Item">
+              <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ItemCategory" TypeName="TTDBModel.ItemCategory" StoreEntitySet="ItemCategory">
+            <EndProperty Name="Category">
+              <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
             </EndProperty>
             <EndProperty Name="Item">
               <ScalarProperty Name="ItemID" ColumnName="ItemID" />

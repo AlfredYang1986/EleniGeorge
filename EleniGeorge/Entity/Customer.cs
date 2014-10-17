@@ -31,7 +31,9 @@ namespace EleniGeorge.Entity
         public string PaypalAccount { get; set; }
         public string DefaultPaymentMethod { get; set; }
         public string Phone { get; set; }
+        public Nullable<int> AddressID { get; set; }
     
+        public virtual Address Address { get; set; }
         public virtual CreditCard CreditCard { get; set; }
         public virtual ICollection<SalesOrderHeader> SalesOrderHeader { get; set; }
         public virtual ICollection<Item> Item { get; set; }

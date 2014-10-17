@@ -187,76 +187,79 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Entity\Address.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Category.cs">
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Color.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\ColorMapping.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\CountryRegion.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\CreditCard.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Customer.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Item.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\ItemPicture.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\ItemSize.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Material.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Occasion.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Picture.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SalesOrderHeader.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\SalesOrderRow.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\ShipMethod.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Size.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\StateProvince.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Style.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\sysdiagrams.cs">
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+    <Compile Include="Entity\SubCategory.cs">
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\TTDBedmx.Context.cs">
+    <Compile Include="Entity\TTDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TTDBedmx.Context.tt</DependentUpon>
+      <DependentUpon>TTDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\TTDBedmx.cs">
+    <Compile Include="Entity\TTDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TTDBedmx.tt</DependentUpon>
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\TTDBedmx.Designer.cs">
+    <Compile Include="Entity\TTDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TTDBedmx.edmx</DependentUpon>
+      <DependentUpon>TTDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -331,22 +334,22 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Entity\TTDBedmx.edmx">
+    <EntityDeploy Include="Entity\TTDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TTDBedmx.Designer.cs</LastGenOutput>
+      <LastGenOutput>TTDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Entity\TTDBedmx.Context.tt">
+    <Content Include="Entity\TTDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TTDBedmx.edmx</DependentUpon>
-      <LastGenOutput>TTDBedmx.Context.cs</LastGenOutput>
+      <DependentUpon>TTDB.edmx</DependentUpon>
+      <LastGenOutput>TTDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity\TTDBedmx.edmx.diagram">
-      <DependentUpon>TTDBedmx.edmx</DependentUpon>
+    <Content Include="Entity\TTDB.edmx.diagram">
+      <DependentUpon>TTDB.edmx</DependentUpon>
     </Content>
-    <Content Include="Entity\TTDBedmx.tt">
+    <Content Include="Entity\TTDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TTDBedmx.edmx</DependentUpon>
-      <LastGenOutput>TTDBedmx.cs</LastGenOutput>
+      <DependentUpon>TTDB.edmx</DependentUpon>
+      <LastGenOutput>TTDB.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\landingpage.jpg" />
@@ -380,6 +383,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\SearchLogic.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
