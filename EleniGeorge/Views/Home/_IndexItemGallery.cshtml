@@ -45,7 +45,7 @@
     @foreach (var item in @Model.items)
     {
         <div class="item" style="float: left; width: 24%; height: 400px; margin-top: 10px; margin-left: 1%">
-            <img src="@Url.Content(@item.imgUrl)" style="height: 350px; width: 100%">
+            <img class="itemImg" src="@Url.Content(@item.imgUrl)" style="height: 350px; width: 100%">
             <div class="text-center">@item.name</div>
             <div class="text-center">$@item.price</div>
         </div>
