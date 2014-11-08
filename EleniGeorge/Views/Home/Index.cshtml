@@ -22,14 +22,14 @@
         var sv = new SearchLogic();
 
         function itemCallback() {
+            $("#buy").click(function () {
+                window.location.href = "/Home/PayPalPayment?price=1.0";
+            });
             $(".item").click(function () {
                 $("#md").modal();
             });
             $(".itemImg").click(function () {
                 $("#md").modal();
-            });
-            $("#buy").click(function () {
-                window.location.href = "/Home/PayPalPayment?price=1.0";
             });
         };
 
@@ -37,7 +37,12 @@
             $("#sidebar-cate").css("height", $("#sidebar-cate > ul > li").size() * 20 + 25);
             $("#sidebar-size").css("height", $("#sidebar-size > ul > li").size() / 3 * 20 + 25);
             $("#sidebar-color").css("height", $("#sidebar-color > ul > li").size() / 3 * 20 + 25);
-
+            $(".item").click(function () {
+                $("#md").modal();
+            });
+            $(".itemImg").click(function () {
+                $("#md").modal();
+            });
             $(".searchClick").click(function () {
                 sv.reSet();
 
@@ -79,9 +84,56 @@
                         alert(error);
                     }
                 });
+                return false;
             });
 
-            itemCallback();
+            $(".data-menu-len").click(function () {
+                var menuCategory = $(this).parent().parent().siblings("a");
+                var menuGender = menuCategory.parent().parent().siblings("a");
+
+                alert($(this).text() + '|' + menuCategory.text() + '|' + menuGender.text());
+
+                var sv = new SearchLogic();
+                sv.reSet();
+
+                sv.addLength($(this).text());
+                sv.addCat(menuCategory.text());
+                sv.addGender(menuGender.text());
+                
+                $.ajax({
+                    url: '/Home/Search',
+                    type: 'POST',
+                    dataType: 'html',
+                    contentType: 'application/json, charset=utf-8',
+                    data: JSON.stringify(sv.toJson()),
+                    cache: false,
+                    //beforeSend: function () {
+                    //    Loading();
+                    //},
+                    //complete: function () {
+                    //    hiddenLoading();
+                    //},
+                    success: function (data) {
+                        $("#resultGallery").html(data);
+                        itemCallback();
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+                return false;
+            });
+
+            $(".data-menu-cat").click(function (e) {
+                var menuCategory = $(this).parent().parent().siblings("a");
+
+                alert($(this).text() + '|' + menuCategory.text());
+            });
+
+            $(".data-menu-gen").click(function (e) {
+                
+                alert($(this).text());
+            });
         });
     </script>
 }

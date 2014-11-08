@@ -15,22 +15,22 @@ namespace EleniGeorge.Models.Orders
 
             _itmes = new List<GalleryItem>()
             {
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/01.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/02.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/03.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/04.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/05.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/06.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/08.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/09.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/10.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/11.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/12.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/13.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/14.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/15.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/16.jpg", price = 99.88},
-                new GalleryItem() { name = @"Alfred Test", imgUrl = @"~/Images/TestImages/17.jpg", price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/01.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/02.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/03.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/04.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/05.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/06.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/08.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/09.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/10.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/11.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/12.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/13.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/14.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/15.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/16.jpg", Price = 99.88},
+                new GalleryItem() { Name = @"Alfred Test", ImgUrl = @"~/Images/TestImages/17.jpg", Price = 99.88},
             };
         }
 

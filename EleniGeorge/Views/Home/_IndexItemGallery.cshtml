@@ -4,34 +4,34 @@
     <div style="width: 25%">
         <div class="pull-left row" style="font-size: 0.8em; width: 80%; margin-left: auto; margin-right: auto">
             <a id="pdView" href="#">PRODUCT VIEW</a>
-            <span> | </span>
+            <span>| </span>
             <a id="otView" href="#">OUTFIT VIEW</a>
         </div>
     </div>
     <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>
-    
+
     <div class="pull-left" style="font-size: 0.8em; width: 25%">
-        <div style="width: 30%; margin-left: auto; margin-right: auto">@Model.items.Count()RESULTS</div>
+        <div style="width: 30%; margin-left: auto; margin-right: auto">@Model.Items.Count()RESULTS</div>
     </div>
     <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>
-    
+
     <div class="pull-left" style="font-size: 0.8em; width: 25%">
         <div style="width: 40%; margin-left: auto; margin-right: auto">SHOW <a id="page-20">20</a> <a id="page-200">200</a></div>
     </div>
     <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>
-    
+
     <div class="pull-left" style="margin-left: -4px; width: 25%; font-size: 0.8em">
         <div style="width: 60%; margin-left: auto; margin-right: auto; height: 15px">
-            SORT BY: 
             <div class="btn-group" style="margin-top: -2px">
                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                    Best Match
+                    Sort By
                     <span class="caret"></span>
                 </button>
-            
+
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Alfred</a></li>
-                  <li><a href="#">Test</a></li>
+                    <li><a href="#">Best Match</a></li>
+                    <li><a href="#">Price</a></li>
+                    <li><a href="#">Discount</a></li>
                 </ul>
             </div>
         </div>
@@ -41,15 +41,20 @@
 <div style="border: 1px solid #808080; height: 1px; margin: 3px 0px 0px 0px"></div>
 
 <div class="row">
-
-    @foreach (var item in @Model.items)
+    @if (Model.Items.Count() == 0)
     {
-        <div class="item" style="float: left; width: 24%; height: 400px; margin-top: 10px; margin-left: 1%">
-            <img class="itemImg" src="@Url.Content(@item.imgUrl)" style="height: 350px; width: 100%">
-            <div class="text-center">@item.name</div>
-            <div class="text-center">$@item.price</div>
+        <div class="container">
+            No match found.
         </div>
     }
+    else
+    {
+        foreach (var item in Model.Items)
+        {
+            @Html.Partial("_ItemView", item);
+        }
+    }
+
 
 </div>
 
@@ -57,9 +62,9 @@
 <div id="md" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            
+
             <div class="modal-header">
-                 <div class="row">
+                <div class="row">
                     <div class="modal-title" id="myModalLabel" style="margin-left: 10px; margin-right: 10px">
                         <div class="pull-left" style="margin-right: 10px">
                             <span class="glyphicon glyphicon-heart"></span>
@@ -79,7 +84,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div style="width: 48%" class="pull-left">
-                        <img src="@Url.Content(@Model.items.FirstOrDefault().imgUrl)" style="margin: 5px 2%; width: 94%; height: 100%">
+                        @*                        <img src="@Url.Content(@Model.Items.FirstOrDefault().ImgUrl)" style="margin: 5px 2%; width: 94%; height: 100%">*@
                     </div>
 
                     <div class="pull-left" style="width: 1px; height: 100%; border: 1px solid #808080"></div>
@@ -107,25 +112,25 @@
                                 <span style="font-size: 1.1em; font-weight: bold; margin-top: 10px">SELECT UK SIZE:</span>
 
                                 <div class="row">
-                                    <div style="width:60%" class="pull-left">
-                                    <table border="0" width="100%" >
+                                    <div style="width: 60%" class="pull-left">
+                                        <table border="0" width="100%">
 
-                                        @for (int i = 4; i <= 16; i += 6)
-                                        {
-                                            <tr>
-                                                @for (int j = 0; j < 3; ++j)
-                                                {
-                                                    if ((i + 2 * j) > 16) { break; }
+                                            @for (int i = 4; i <= 16; i += 6)
+                                            {
+                                                <tr>
+                                                    @for (int j = 0; j < 3; ++j)
+                                                    {
+                                                        if ((i + 2 * j) > 16) { break; }
                                                     
-                                                    <td>
-                                                        <div style="margin: 5px; border: 1px solid #808080" class="text-center">@(i + 2 * j)</div>
-                                                    </td>
-                                                }
+                                                        <td>
+                                                            <div style="margin: 5px; border: 1px solid #808080" class="text-center">@(i + 2 * j)</div>
+                                                        </td>
+                                                    }
 
-                                            </tr>
-                                        }
+                                                </tr>
+                                            }
 
-                                    </table>
+                                        </table>
                                     </div>
 
                                     <div class="pull-left" style="margin: 8%">
@@ -133,10 +138,10 @@
                                     </div>
 
                                 </div>
-                                
+
                                 <br />
                                 <span style="font-size: 1.1em; font-weight: bold; margin-top: 10px">COLOR:</span>
-                                
+
                                 <br />
                                 <span style="font-size: 1.1em; font-weight: bold; margin-top: 10px">QUANTILY:</span>
                                 <div class="btn-group" style="">
@@ -144,9 +149,9 @@
                                         1
                                         <span class="caret"></span>
                                     </button>
-            
+
                                     <ul class="dropdown-menu" role="menu">
-                                        @for(int index = 1; index < 10; ++index)
+                                        @for (int index = 1; index < 10; ++index)
                                         {
                                             <li><a href="#">@index</a></li>
                                             
@@ -163,6 +168,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>

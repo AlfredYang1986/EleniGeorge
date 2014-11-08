@@ -7,8 +7,8 @@ namespace EleniGeorge.Models
 {
     public class GalleryItem
     {
-        public string name { get; set; }
-        public string imgUrl { get; set; }
-        public double price { get; set; }
+        public string Name { get; set; }
+        public string ImgUrl { get; set; }
+        public double Price { get; set; }
     }
 }

@@ -52,18 +52,18 @@ namespace EleniGeorge.Controllers
         [HttpPost]
         public ActionResult Search(string data)
         {
-            //return PartialView();
-            dynamic sd = JsonConvert.DeserializeObject(data);
+            dynamic searchData = JsonConvert.DeserializeObject(data);
 
             using (var db = new TTDBEntities())
             {
+
                 IEnumerable<Item> result = db.Item;
 
                 /************************************************************************/
                 /* 1. Category                                                          */
                 /************************************************************************/
-                JArray catArr_tmp = sd.cats;
-                var catArr = from it in catArr_tmp
+                JArray catArrTmp = searchData.cats;
+                var catArr = from it in catArrTmp
                              select new string(it.ToString().ToCharArray());
 
                 foreach (var cat in catArr)
@@ -76,7 +76,7 @@ namespace EleniGeorge.Controllers
                 /************************************************************************/
                 /* 2. Color                                                             */
                 /************************************************************************/
-                JArray colArr_tmp = sd.colors;
+                JArray colArr_tmp = searchData.colors;
                 var colArr = from it in colArr_tmp 
                              select new string(it.ToString().ToCharArray());
 
@@ -90,7 +90,7 @@ namespace EleniGeorge.Controllers
                 /************************************************************************/
                 /* 3. Size                                                              */
                 /************************************************************************/
-                JArray sizeArr_tmp = sd.sizes;
+                JArray sizeArr_tmp = searchData.sizes;
                 var sizeArr = from it in sizeArr_tmp 
                              select new string(it.ToString().ToCharArray());
 
@@ -104,7 +104,7 @@ namespace EleniGeorge.Controllers
                 /************************************************************************/
                 /* 4. Search Input                                                      */
                 /************************************************************************/
-                string input = sd.input;
+                string input = searchData.input;
 
                 /************************************************************************/
                 /* 4.1 find category                                                    */
@@ -127,14 +127,16 @@ namespace EleniGeorge.Controllers
                              where it.Color.Any(x => x.ColorName.ToLower() == input.ToLower())
                              select it;
                 }
-
+                
                 var reVal = (from it in result
-                             select new GalleryItem()
+                    let firstOrDefault = it.ItemPicture.FirstOrDefault(x => x.IsDefault)
+                    where firstOrDefault != null
+                    select new GalleryItem()
                              {
-                                name = it.Name,
-                                imgUrl = it.ItemPicture.FirstOrDefault(x => x.IsDefault)
+                                Name = it.Name,
+                                ImgUrl = firstOrDefault
                                             .Picture.LargePictureAddress,
-                                price = it.ListPrice.HasValue ? it.ListPrice.Value : 0.0
+                                Price = it.ListPrice.HasValue ? it.ListPrice.Value : 0.0
                              }).ToList();
 
                 return PartialView("_IndexItemGallery", new ItemGalleryModel(reVal));
@@ -150,10 +152,10 @@ namespace EleniGeorge.Controllers
 
         public async Task<ActionResult> PayPalPayment(double price)
         {
-            var approal_url = await PayPalPaymentFacad.createPayment(price.ToString(), @"Alfred Test"
+            var approvalUrl = await PayPalPaymentFacad.createPayment(price.ToString(), @"Alfred Test"
                                         , @"http://localhost:1053/Home/ConfirmPayment"
                                         , @"http://localhost:1053/Home/CancelPayment");
-            return Redirect(approal_url);
+            return Redirect(approvalUrl);
         }
 
         // Get: /ConfirmPayment
