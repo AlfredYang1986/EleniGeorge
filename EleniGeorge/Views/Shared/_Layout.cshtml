@@ -14,97 +14,115 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     @Styles.Render("~/Content/css")
 </head>
-<body style="border-top: 0px solid black">
-    <header style="position: fixed; top: 0px; width: 100%; background-color: white; z-index: 100">
-        @*Header*@
-        <div style="background-color: black">
-            <div class="row" style="margin: 0px 20px;">
-                <div class="pull-left row">
-                    <p style="color: white">
-                        FOLLOW US ON 
+<body>
+    <header>
+        @*Top header banner*@
+        <div id="top-header-banner" class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="pull-left">
+                        <p>
+                            FOLLOW US ON 
                             <span class="glyphicon glyphicon-search"></span>
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <span class="glyphicon glyphicon-minus"></span>
-                    </p>
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </p>
+                    </div>
                 </div>
-                <div id="mybag" class="pull-right">
-                    <div class="pull-left row">
-                        <p style="color: white"><span class="glyphicon glyphicon-lock"></span>My Bag(0): 0000.00</p>
+                <div id="mybag" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="pull-right">
+                        <p><span class="glyphicon glyphicon-lock"></span>My Bag(0): 0000.00</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div style="margin: 0px 20px;">
-            <div class="pull-right row">
-                <button class="btn btn-link" id="sign">SIGN IN</button>
-                <span>| </span>
-                <button class="btn btn-link" id="reg">REGISTER</button>
+        @*Logo banner area*@
+        <div id="logo-area-banner" class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <div class="pull-left">
+                        Contact Details
+                    </div>
+                </div>
+                <div class="hidden-sm hidden-xs col-md-6 col-lg-6" id="logo-area">
+                    <p>ELENI GEORGE</p>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <div class="pull-right">
+                        <button class="btn btn-link" id="reg">Join</button>
+                        <span>|</span>
+                        <button class="btn btn-link" id="sign">Sign In</button>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="text-center" style="font-size: 3em;">
-            ELENI GEORGE
         </div>
 
         @*MENU*@
-        <nav class="navbar-inverse" role="navigation">
-            <div class="container-fluid" id="site-nav-bar">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsed-menu">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span></a>
-                </div>
+        <div id="nav-bar-container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="collapsed-menu">
-                    <ul class="nav navbar-nav nav-click">
-                        <li><a class="data-menu-gen">Women</a>
-                            <ul>
-                                <li><a class="data-menu-cat">Dresses</a>
-                                    <ul>
-                                        <li><a class="data-menu-len">Long</a></li>
-                                        <li><a class="data-menu-len">Short</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="data-menu-cat">Skirts</a>
-                                    <ul>
-                                        <li><a class="data-menu-len">Long</a></li>
-                                        <li><a class="data-menu-len">Short</a></li>
-                                    </ul>
-                                </li>
-                                <li><a class="data-menu-cat">Tops</a>
-                                    <ul>
-                                        <li><a class="data-menu-len">Long</a></li>
-                                        <li><a class="data-menu-len">Short</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Men</a></li>
-                    </ul>
-                    <div class="col-lg-2 navbar-right navbar-form">
-                        <div class="input-group">
-                            <input id="searchInput" type="text" class="form-control">
-                            <span class="input-group-btn">
-                                <button id="searchButton" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                            </span>
-                        </div>
-                        <!-- /input-group -->
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsed-menu">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <a class="navbar-brand" href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span></a>
                     </div>
-                    <!-- /.col-lg-6 -->
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-    </header>
 
+                    <div class="collapse navbar-collapse" id="collapsed-menu">
+                        <ul class="nav navbar-nav">
+                            <li><a class="data-menu-gen">Women</a>
+                                <ul>
+                                    <li><a class="data-menu-cat">Dresses</a>
+                                        <ul>
+                                            <li><a class="data-menu-len">Long</a></li>
+                                            <li><a class="data-menu-len">Short</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="data-menu-cat">Skirts</a>
+                                        <ul>
+                                            <li><a class="data-menu-len">Long</a></li>
+                                            <li><a class="data-menu-len">Short</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="data-menu-cat">Tops</a>
+                                        <ul>
+                                            <li><a class="data-menu-len">Long</a></li>
+                                            <li><a class="data-menu-len">Short</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a>Men</a></li>
+                        </ul>
+
+@*                        <form class="navbar-right navbar-form" role="search">
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <input id="searchInput" type="text" class="form-control" placeholder="Keyword">
+                                    <div class="input-group-btn">
+                                        <button id="searchButton" class="btn  btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>*@
+                        <form class="navbar-form navbar-right navbar-input-group" role="search">
+                            <div class="form-group">
+                                <input id="searchInput" type="text" class="form-control" placeholder="Keyword">
+                            </div>
+                            <button type="submit" id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        </form>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
     <div style="margin-top: 140px; z-index: 50">
         @RenderBody()
     </div>

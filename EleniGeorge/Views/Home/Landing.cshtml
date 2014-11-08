@@ -2,14 +2,14 @@
 @{
     ViewBag.Title = "Eleni George";
 }
-
+@Styles.Render("~/Content/Landing.css")
 <div id="bkg-img">
-    <img style="width:100%; height: 100%" src="~/Images/landingpage.jpg">
+    <img src="~/Images/landingpage.jpg">
 </div>
 
-<div class="text-center" style="font-size: 2em; background-color: #808080">
+<p id="slogan-text">
     BE CLASSY AND FABULOUS (SLOGEN)
-</div>
+</p>
 
 @Html.Partial("_LandingPageCard")
 

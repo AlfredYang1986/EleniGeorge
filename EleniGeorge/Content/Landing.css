@@ -1,0 +1,27 @@
+﻿#bkg-img {
+    text-align: center;
+}
+
+    #bkg-img img {
+        width: 1200px;
+        height: 100%;
+    }
+
+#slogan-text {
+    text-align: center;
+    font-family: "Verdana", Sans-serif;
+    font-size: 1.5em;
+    background-color: white;
+    color: black;
+}
+
+@media screen and (max-width: 1200px) {
+    #bkg-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    #slogan-text {
+        font-size: 1em;
+    }
+}
