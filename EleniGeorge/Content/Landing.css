@@ -15,6 +15,37 @@
     color: black;
 }
 
+#marketing-banner {
+    width: 1200px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 0 0;
+    color: darkgray;
+    display: table;
+    text-align: center;
+}
+
+    #marketing-banner .data-info-box {
+        width: 20%;
+        height: 200px;
+        margin: 0 0;
+        padding: 15px;
+        background-color: wheat;
+        color: gray;
+        border: 10px solid darkgray;
+        display: table-cell;
+    }
+
+        #marketing-banner .data-info-box .data-info-title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        #marketing-banner .data-info-box .data-info-details {
+            font-size: 1em;
+            font-weight: normal;
+        }
+
 @media screen and (max-width: 1200px) {
     #bkg-img img {
         width: 100%;
@@ -23,5 +54,9 @@
 
     #slogan-text {
         font-size: 1em;
+    }
+
+    #marketing-banner {
+        width: 100%;
     }
 }
