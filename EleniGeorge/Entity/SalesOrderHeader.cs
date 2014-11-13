@@ -16,7 +16,7 @@ namespace EleniGeorge.Entity
     {
         public SalesOrderHeader()
         {
-            this.SalesOrderRow = new HashSet<SalesOrderRow>();
+            this.SalesOrderRows = new HashSet<SalesOrderRow>();
         }
     
         public int SalesOrderID { get; set; }
@@ -38,8 +38,8 @@ namespace EleniGeorge.Entity
         public virtual Address Address { get; set; }
         public virtual Address Address1 { get; set; }
         public virtual CreditCard CreditCard { get; set; }
-        public virtual Customer Customer { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
         public virtual ShipMethod ShipMethod { get; set; }
-        public virtual ICollection<SalesOrderRow> SalesOrderRow { get; set; }
+        public virtual ICollection<SalesOrderRow> SalesOrderRows { get; set; }
     }
 }

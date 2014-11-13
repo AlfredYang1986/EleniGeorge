@@ -12,16 +12,12 @@ namespace EleniGeorge.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class CountryRegion
+    public partial class sysdiagram
     {
-        public CountryRegion()
-        {
-            this.StateProvinces = new HashSet<StateProvince>();
-        }
-    
-        public string CountryRegionCode { get; set; }
-        public string Name { get; set; }
-    
-        public virtual ICollection<StateProvince> StateProvinces { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

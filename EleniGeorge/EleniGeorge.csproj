@@ -204,9 +204,6 @@
     <Compile Include="Entity\CreditCard.cs">
       <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity\Customer.cs">
-      <DependentUpon>TTDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Item.cs">
       <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
@@ -246,6 +243,9 @@
     <Compile Include="Entity\SubCategory.cs">
       <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\sysdiagram.cs">
+      <DependentUpon>TTDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\TTDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -260,6 +260,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TTDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UserProfile.cs">
+      <DependentUpon>TTDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -278,10 +281,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\Tags.xml" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Index.css" />
     <Content Include="Content\Landing.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -340,6 +345,11 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <EntityDeploy Include="Entity\TTDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TTDB.Designer.cs</LastGenOutput>
@@ -357,29 +367,31 @@
       <DependentUpon>TTDB.edmx</DependentUpon>
       <LastGenOutput>TTDB.cs</LastGenOutput>
     </Content>
-    <Content Include="Images\landingpage.jpg" />
-    <Content Include="Images\TestImages\01.jpg" />
-    <Content Include="Images\TestImages\02.jpg" />
-    <Content Include="Images\TestImages\03.jpg" />
-    <Content Include="Images\TestImages\04.jpg" />
-    <Content Include="Images\TestImages\05.jpg" />
-    <Content Include="Images\TestImages\06.jpg" />
-    <Content Include="Images\TestImages\08.jpg" />
-    <Content Include="Images\TestImages\09.jpg" />
-    <Content Include="Images\TestImages\10.jpg" />
-    <Content Include="Images\TestImages\11.jpg" />
-    <Content Include="Images\TestImages\12.jpg" />
-    <Content Include="Images\TestImages\13.jpg" />
-    <Content Include="Images\TestImages\14.jpg" />
-    <Content Include="Images\TestImages\15.jpg" />
-    <Content Include="Images\TestImages\16.jpg" />
-    <Content Include="Images\TestImages\17.jpg" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\10.jpg" />
+    <Content Include="Images\11.jpg" />
+    <Content Include="Images\12.jpg" />
+    <Content Include="Images\13.jpg" />
+    <Content Include="Images\14.jpg" />
+    <Content Include="Images\15.jpg" />
+    <Content Include="Images\16.jpg" />
+    <Content Include="Images\17.jpg" />
+    <Content Include="Images\18.jpg" />
+    <Content Include="Images\19.jpg" />
+    <Content Include="Images\2.JPG" />
+    <Content Include="Images\20.jpg" />
+    <Content Include="Images\21.jpg" />
+    <Content Include="Images\22.jpg" />
+    <Content Include="Images\23.jpg" />
+    <Content Include="Images\24.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\4.jpg" />
+    <Content Include="Images\5.jpg" />
+    <Content Include="Images\6.jpg" />
+    <Content Include="Images\7.jpg" />
+    <Content Include="Images\8.jpg" />
+    <Content Include="Images\9.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
@@ -407,19 +419,6 @@
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />

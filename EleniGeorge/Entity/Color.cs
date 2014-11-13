@@ -16,14 +16,14 @@ namespace EleniGeorge.Entity
     {
         public Color()
         {
-            this.ColorMapping = new HashSet<ColorMapping>();
-            this.Item = new HashSet<Item>();
+            this.ColorMappings = new HashSet<ColorMapping>();
+            this.Items = new HashSet<Item>();
         }
     
         public int ColorID { get; set; }
         public string ColorName { get; set; }
     
-        public virtual ICollection<ColorMapping> ColorMapping { get; set; }
-        public virtual ICollection<Item> Item { get; set; }
+        public virtual ICollection<ColorMapping> ColorMappings { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

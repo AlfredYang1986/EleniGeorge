@@ -16,12 +16,12 @@ namespace EleniGeorge.Entity
     {
         public Style()
         {
-            this.Item = new HashSet<Item>();
+            this.Items = new HashSet<Item>();
         }
     
         public int StyleID { get; set; }
         public string StyleName { get; set; }
     
-        public virtual ICollection<Item> Item { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

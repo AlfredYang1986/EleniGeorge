@@ -1,26 +1,26 @@
 ﻿@model EleniGeorge.Models.ItemGalleryModel
 
-<div class="row" style="margin-left: 0px; margin-right: 0px">
-    <div style="width: 25%">
+<div class="row">
+    @*    <div style="width: 25%">
         <div class="pull-left row" style="font-size: 0.8em; width: 80%; margin-left: auto; margin-right: auto">
             <a id="pdView" href="#">PRODUCT VIEW</a>
             <span>| </span>
             <a id="otView" href="#">OUTFIT VIEW</a>
         </div>
-    </div>
-    <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>
+    </div>*@
+    @*    <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>*@
 
-    <div class="pull-left" style="font-size: 0.8em; width: 25%">
+    @*    <div class="pull-left" style="font-size: 0.8em; width: 25%">
         <div style="width: 30%; margin-left: auto; margin-right: auto">@Model.Items.Count()RESULTS</div>
     </div>
-    <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>
+    <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>*@
 
     <div class="pull-left" style="font-size: 0.8em; width: 25%">
         <div style="width: 40%; margin-left: auto; margin-right: auto">SHOW <a id="page-20">20</a> <a id="page-200">200</a></div>
     </div>
-    <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>
+    @*    <span class="pull-left" style="margin-left: -1px; color: #808080">|</span>*@
 
-    <div class="pull-left" style="margin-left: -4px; width: 25%; font-size: 0.8em">
+    <div class="pull-right" style="margin-left: auto; margin-bottom: 2px; width: 25%; font-size: 0.8em">
         <div style="width: 60%; margin-left: auto; margin-right: auto; height: 15px">
             <div class="btn-group" style="margin-top: -2px">
                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -38,7 +38,7 @@
     </div>
 </div>
 
-<div style="border: 1px solid #808080; height: 1px; margin: 3px 0px 0px 0px"></div>
+<div style="border: 1px solid #808080; height: 1px; margin: 5px 0px 0px 0px"></div>
 
 <div class="row">
     @if (Model.Items.Count() == 0)
@@ -51,7 +51,7 @@
     {
         foreach (var item in Model.Items)
         {
-            @Html.Partial("_ItemView", item);
+        @Html.Partial("_ItemView", item);
         }
     }
 

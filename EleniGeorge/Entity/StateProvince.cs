@@ -16,7 +16,7 @@ namespace EleniGeorge.Entity
     {
         public StateProvince()
         {
-            this.Address = new HashSet<Address>();
+            this.Addresses = new HashSet<Address>();
         }
     
         public int StateProvinceID { get; set; }
@@ -25,7 +25,7 @@ namespace EleniGeorge.Entity
         public string Name { get; set; }
         public System.Guid StateProvinceGUID { get; set; }
     
-        public virtual ICollection<Address> Address { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
         public virtual CountryRegion CountryRegion { get; set; }
     }
 }

@@ -12,20 +12,19 @@ namespace EleniGeorge.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class UserProfile
     {
-        public Customer()
+        public UserProfile()
         {
-            this.SalesOrderHeader = new HashSet<SalesOrderHeader>();
-            this.Item = new HashSet<Item>();
-            this.Item1 = new HashSet<Item>();
+            this.SalesOrderHeaders = new HashSet<SalesOrderHeader>();
+            this.Items = new HashSet<Item>();
+            this.Items1 = new HashSet<Item>();
         }
     
-        public int CustomerID { get; set; }
+        public int UserId { get; set; }
         public string Email { get; set; }
         public string Title { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        public string UserName { get; set; }
         public string Suffix { get; set; }
         public Nullable<int> CreditCardID { get; set; }
         public string PaypalAccount { get; set; }
@@ -35,8 +34,8 @@ namespace EleniGeorge.Entity
     
         public virtual Address Address { get; set; }
         public virtual CreditCard CreditCard { get; set; }
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeader { get; set; }
-        public virtual ICollection<Item> Item { get; set; }
-        public virtual ICollection<Item> Item1 { get; set; }
+        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
+        public virtual ICollection<Item> Items1 { get; set; }
     }
 }

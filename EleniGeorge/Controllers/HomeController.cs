@@ -57,7 +57,7 @@ namespace EleniGeorge.Controllers
             using (var db = new TTDBEntities())
             {
 
-                IEnumerable<Item> result = db.Item;
+                IEnumerable<Item> result = db.Items;
 
                 /************************************************************************/
                 /* 1. Category                                                          */
@@ -69,7 +69,7 @@ namespace EleniGeorge.Controllers
                 foreach (var cat in catArr)
                 {
                     result = from it in result
-                             where it.Category.Any(x => x.Category1.ToLower() == cat.ToLower())
+                             where it.Categories.Any(x => x.Category1.ToLower() == cat.ToLower())
                              select it;
                 }
 
@@ -77,13 +77,13 @@ namespace EleniGeorge.Controllers
                 /* 2. Color                                                             */
                 /************************************************************************/
                 JArray colArr_tmp = searchData.colors;
-                var colArr = from it in colArr_tmp 
+                var colArr = from it in colArr_tmp
                              select new string(it.ToString().ToCharArray());
 
                 foreach (var col in colArr)
                 {
                     result = from it in result
-                             where it.Color.Any(x => x.ColorName.ToLower() == col.ToLower())
+                             where it.Colors.Any(x => x.ColorName.ToLower() == col.ToLower())
                              select it;
                 }
 
@@ -91,13 +91,13 @@ namespace EleniGeorge.Controllers
                 /* 3. Size                                                              */
                 /************************************************************************/
                 JArray sizeArr_tmp = searchData.sizes;
-                var sizeArr = from it in sizeArr_tmp 
-                             select new string(it.ToString().ToCharArray());
+                var sizeArr = from it in sizeArr_tmp
+                              select new string(it.ToString().ToCharArray());
 
                 foreach (var size in sizeArr)
                 {
                     result = from it in result
-                             where it.ItemSize.Any(x => x.Size.SizeName.ToString().ToLower() == size.ToLower())
+                             where it.ItemSizes.Any(x => x.Size.SizeName.ToString().ToLower() == size.ToLower())
                              select it;
                 }
 
@@ -113,7 +113,7 @@ namespace EleniGeorge.Controllers
                 if (cat_candi.categories.Any(x => x.ToLower() == input.ToLower()))
                 {
                     result = from it in result
-                             where it.Category.Any(x => x.Category1.ToLower() == input.ToLower())
+                             where it.Categories.Any(x => x.Category1.ToLower() == input.ToLower())
                              select it;
                 }
 
@@ -124,20 +124,20 @@ namespace EleniGeorge.Controllers
                 if (col_candi.colors.Any(x => x.ToLower() == input.ToLower()))
                 {
                     result = from it in result
-                             where it.Color.Any(x => x.ColorName.ToLower() == input.ToLower())
+                             where it.Colors.Any(x => x.ColorName.ToLower() == input.ToLower())
                              select it;
                 }
-                
+
                 var reVal = (from it in result
-                    let firstOrDefault = it.ItemPicture.FirstOrDefault(x => x.IsDefault)
-                    where firstOrDefault != null
-                    select new GalleryItem()
-                             {
-                                Name = it.Name,
-                                ImgUrl = firstOrDefault
-                                            .Picture.LargePictureAddress,
-                                Price = it.ListPrice.HasValue ? it.ListPrice.Value : 0.0
-                             }).ToList();
+                             let firstOrDefault = it.ItemPictures.FirstOrDefault(x => x.IsDefault)
+                             where firstOrDefault != null
+                             select new GalleryItem()
+                                      {
+                                          Name = it.Name,
+                                          ImgUrl = firstOrDefault
+                                                      .Picture.LargePictureAddress,
+                                          Price = it.ListPrice.HasValue ? it.ListPrice.Value : 0.0
+                                      }).ToList();
 
                 return PartialView("_IndexItemGallery", new ItemGalleryModel(reVal));
             }

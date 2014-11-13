@@ -1,0 +1,85 @@
+﻿#index-panel {
+    width: 1200px;
+    padding: 0;
+}
+
+    #index-panel .row {
+        padding: 0%;
+        margin: auto;
+        background-color: white;
+    }
+
+/************************** Side bar styles ***********************/
+#sidebar {
+    padding: 10px 5px;
+    border: 1px solid #eee;
+}
+
+    #sidebar .row p {
+        font-family: Georgia, serif;
+        font-size: 12px;
+    }
+
+    #sidebar .row div {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #sidebar .row button {
+        font-family: Georgia, serif;
+        font-size: 12px;
+        padding: 0;
+        float: right;
+    }
+
+    #sidebar .data-sidebar-title {
+        font-family: Georgia, serif;
+        font-size: x-small;
+        font-weight: bold;
+        margin: 10px 0 0 0;
+    }
+
+    #sidebar .data-sidebar-content {
+        font-family: Georgia, serif;
+        font-size: x-small;
+        margin: 0 0 0 -20px;
+        padding: 0;
+    }
+
+        #sidebar .data-sidebar-content li {
+            margin: 0 0 0 0;
+            list-style: none;
+            float: left;
+            display: inline;
+        }
+
+            #sidebar .data-sidebar-content li .checkbox {
+                margin: 0;
+            }
+
+            #sidebar .data-sidebar-content li label {
+                padding-left: 0;
+                font-weight: normal;
+            }
+
+
+.data-three-col {
+    width: 33%;
+}
+
+.data-two-col {
+    width: 50%;
+}
+
+
+/************************* Result Gallery Styles **********************/
+
+#resultGallery {
+    padding: 10px 0;
+}
+
+    #resultGallery .row {
+        margin-left: 0px;
+        margin-right: 0px;
+        /*border: thin red solid;*/
+    }

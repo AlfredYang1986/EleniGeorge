@@ -5,14 +5,16 @@
 }
 
 @Html.Partial("_IndexRouteLine")
+@Styles.Render("~/Content/Index.css")
+<div id="index-panel" class="container">
+    <div class="row">
+        <div id="sidebar" class="col-lg-2 hidden-md hidden-sm hidden-xs">
+            @Html.Partial("_IndexSiderBar", @Model.siderbar)
+        </div>
 
-<div class="row" style="margin-left: 0px; margin-right: 0px; background-color: white; margin-bottom: 35px">
-    <div id="sidebar" class="col-lg-2" style="border: 1px solid #eee">
-        @Html.Partial("_IndexSiderBar", @Model.siderbar)
-    </div>
-
-    <div id="resultGallery" class="col-lg-10">
-        @Html.Partial("_IndexItemGallery", @Model.items)
+        <div id="resultGallery" class="col-lg-10">
+            @Html.Partial("_IndexItemGallery", @Model.items)
+        </div>
     </div>
 </div>
 
@@ -34,7 +36,7 @@
         };
 
         $(function () {
-            $("#sidebar-cate").css("height", $("#sidebar-cate > ul > li").size() * 20 + 25);
+            $("#sidebar-cate").css("height", $("#sidebar-cate > ul > li").size() / 3 * 20 + 25);
             $("#sidebar-size").css("height", $("#sidebar-size > ul > li").size() / 3 * 20 + 25);
             $("#sidebar-color").css("height", $("#sidebar-color > ul > li").size() / 3 * 20 + 25);
             $(".item").click(function () {
@@ -84,6 +86,7 @@
                         alert(error);
                     }
                 });
+                this.prop('checked', !this.attr('checked'));
                 return false;
             });
 
@@ -99,7 +102,7 @@
                 sv.addLength($(this).text());
                 sv.addCat(menuCategory.text());
                 sv.addGender(menuGender.text());
-                
+
                 $.ajax({
                     url: '/Home/Search',
                     type: 'POST',
@@ -131,7 +134,7 @@
             });
 
             $(".data-menu-gen").click(function (e) {
-                
+
                 alert($(this).text());
             });
         });

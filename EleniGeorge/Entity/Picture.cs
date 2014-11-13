@@ -16,13 +16,13 @@ namespace EleniGeorge.Entity
     {
         public Picture()
         {
-            this.ItemPicture = new HashSet<ItemPicture>();
+            this.ItemPictures = new HashSet<ItemPicture>();
         }
     
         public int PictureID { get; set; }
         public byte[] ThumbnailPic { get; set; }
         public string LargePictureAddress { get; set; }
     
-        public virtual ICollection<ItemPicture> ItemPicture { get; set; }
+        public virtual ICollection<ItemPicture> ItemPictures { get; set; }
     }
 }

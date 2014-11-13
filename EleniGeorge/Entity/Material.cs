@@ -16,13 +16,13 @@ namespace EleniGeorge.Entity
     {
         public Material()
         {
-            this.Item = new HashSet<Item>();
+            this.Items = new HashSet<Item>();
         }
     
         public int MaterialID { get; set; }
         public string MaterialName { get; set; }
         public string MaterialDesc { get; set; }
     
-        public virtual ICollection<Item> Item { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }
