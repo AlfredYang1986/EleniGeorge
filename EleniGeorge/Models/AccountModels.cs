@@ -8,6 +8,19 @@ using System.Web.Security;
 
 namespace EleniGeorge.Models
 {
+    public class AccountModel
+    {
+        public AccountModel()
+        {
+            isLandingPage = false;
+            isLogedIn = false;
+        }
+
+        public Boolean isLandingPage { get; set; }
+        public Boolean isLogedIn { get; set; }
+        public String screenName { get; set; }
+    }
+
     public class UsersContext : DbContext
     {
         public UsersContext()

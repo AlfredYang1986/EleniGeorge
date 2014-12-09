@@ -1,2 +1,12 @@
-﻿
-<p style="margin-left: 4%; display:inline;vertical-align: middle"> Home > Alfred Test </p>
+﻿@*@model EleniGeorge.Models.HomePage.RouteLineModel*@
+
+<p style="margin-left: 4%; display:inline;vertical-align: middle"> 
+@*    @foreach (var iter in @Model.routes)
+    {
+        if (iter != @Model.routes.First()) 
+            <span> > </span>
+        
+        <a href="@iter.href">@iter.value</a>
+    }*@
+    Home > Alfred Test
+</p>

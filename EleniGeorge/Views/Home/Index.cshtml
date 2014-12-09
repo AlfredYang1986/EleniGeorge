@@ -4,11 +4,16 @@
     ViewBag.Title = "Index";
 }
 
+@section header {
+
+    @Html.Partial("_CommenHeader", @Model.account)
+}
+
 @Html.Partial("_IndexRouteLine")
 @Styles.Render("~/Content/Index.css")
 <div id="index-panel" class="container">
     <div class="row">
-        <div id="sidebar" class="col-lg-2 hidden-md hidden-sm hidden-xs">
+        <div id="sidebar" class="col-lg-2"> @*hidden-md hidden-sm hidden-xs">*@
             @Html.Partial("_IndexSiderBar", @Model.siderbar)
         </div>
 
@@ -18,33 +23,55 @@
     </div>
 </div>
 
+@Html.Partial("_IndexItemMD")
+
 @section scripts {
     <script src="~/Scripts/SearchLogic.js"></script>
     <script type="text/javascript">
         var sv = new SearchLogic();
 
         function itemCallback() {
-            $("#buy").click(function () {
-                window.location.href = "/Home/PayPalPayment?price=1.0";
-            });
             $(".item").click(function () {
+                $("#md-id").attr("data-itemID", "12345");
+                $("#md-price").html("price: $99.99");
+                $("#md-in-stock").html("Only 2 in Stock");
                 $("#md").modal();
             });
             $(".itemImg").click(function () {
+                $("#md-id").attr("data-itemID", "12345");
+                $("#md-price").html("price: $99.99");
+                $("#md-in-stock").html("Only 2 in Stock");
                 $("#md").modal();
+            });
+            /**
+             * test for paypal
+             */
+            $("#buy").click(function () {
+                window.location.href = "/Home/PayPalPayment?price=1.0";
+            });
+
+            /**
+             * add to my bag
+             */
+            $("#md-add-bag").click(function () {
+                window.location.href = "/Home/addToBag?itmeID=&clientID="
+            });
+
+            /**
+             * save for later
+             */
+            $("#md-save").click(function () {
+                window.location.href = "/Home/SaveForLater?itmeID=&clientID="
             });
         };
 
         $(function () {
+            itemCallback();
+
             $("#sidebar-cate").css("height", $("#sidebar-cate > ul > li").size() / 3 * 20 + 25);
             $("#sidebar-size").css("height", $("#sidebar-size > ul > li").size() / 3 * 20 + 25);
             $("#sidebar-color").css("height", $("#sidebar-color > ul > li").size() / 3 * 20 + 25);
-            $(".item").click(function () {
-                $("#md").modal();
-            });
-            $(".itemImg").click(function () {
-                $("#md").modal();
-            });
+
             $(".searchClick").click(function () {
                 sv.reSet();
 

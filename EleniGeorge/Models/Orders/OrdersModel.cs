@@ -8,6 +8,7 @@ namespace EleniGeorge.Models.Orders
     public class OrdersModel
     {
         private IEnumerable<GalleryItem> _itmes;
+        public AccountModel account { get; set; }
 
         public OrdersModel(string clientID)
         {

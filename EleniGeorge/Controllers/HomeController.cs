@@ -21,15 +21,35 @@ namespace EleniGeorge.Controllers
 
         public ActionResult Landing()
         {
-            return View();
+            var m = new AccountModel();
+            m.isLandingPage = true;
+
+            return View(m);
         }
 
         // GET: /Index
 
-        public ActionResult Index()
+        public ActionResult Index(string keywords = "")
         {
             var m = new HomeIndexModel();
 
+            using (var db = new TTDBEntities())
+            {
+                IEnumerable<Item> result = db.Items;
+                m.items = Item2ItemModel(SearchWithInput(keywords, result));
+            }
+
+            ViewBag.searchInput = keywords;
+            /************************************************************************/
+            /* for test                                                             */
+            /* add login                                                            */
+            /************************************************************************/
+            m.account = new AccountModel()
+            {
+                screenName = "Alfred",
+                isLandingPage = false,
+                isLogedIn = true
+            };
             return View(m);
         }
 
@@ -37,15 +57,59 @@ namespace EleniGeorge.Controllers
 
         public ActionResult SignInView()
         {
-            return View();
+            var m = new AccountModel();
+            return View(m);
         }
 
         // GET: /Profile
 
-        //public ActionResult Profile()
-        //{
-        //    return View();
-        //}
+        public ActionResult Profile()
+        {
+            var m = new AccountModel();
+            return View(m);
+        }
+
+        private ItemGalleryModel Item2ItemModel(IEnumerable<Item> result)
+        {
+            return new ItemGalleryModel(
+                    (from it in result let firstOrDefault = it.ItemPictures.FirstOrDefault(x => x.IsDefault)
+                     where firstOrDefault != null
+                     select new GalleryItem()
+                     {
+                        Name = it.Name,
+                        ImgUrl = firstOrDefault.Picture.LargePictureAddress,
+                        Price = it.ListPrice.HasValue ? it.ListPrice.Value : 0.0
+                     }).ToList()
+                );
+        }
+
+        private IEnumerable<Item> SearchWithInput(string input, IEnumerable<Item> reVal)
+        {
+            /************************************************************************/
+            /* 4.1 find category                                                    */
+            /************************************************************************/
+            var result = reVal;
+            var cat_candi = new CategoryModel();
+            if (cat_candi.categories.Any(x => x.ToLower() == input.ToLower()))
+            {
+                result = from it in result
+                         where it.Categories.Any(x => x.Category1.ToLower() == input.ToLower())
+                         select it;
+            }
+
+            /************************************************************************/
+            /* 4.2 find color                                                       */
+            /************************************************************************/
+            var col_candi = new ColorModel();
+            if (col_candi.colors.Any(x => x.ToLower() == input.ToLower()))
+            {
+                result = from it in result
+                         where it.Colors.Any(x => x.ColorName.ToLower() == input.ToLower())
+                         select it;
+            }
+
+            return result;
+        }
 
         // POST: /Search
 
@@ -56,9 +120,7 @@ namespace EleniGeorge.Controllers
 
             using (var db = new TTDBEntities())
             {
-
                 IEnumerable<Item> result = db.Items;
-
                 /************************************************************************/
                 /* 1. Category                                                          */
                 /************************************************************************/
@@ -100,15 +162,10 @@ namespace EleniGeorge.Controllers
                              where it.ItemSizes.Any(x => x.Size.SizeName.ToString().ToLower() == size.ToLower())
                              select it;
                 }
-
-                /************************************************************************/
-                /* 4. Search Input                                                      */
-                /************************************************************************/
-                string input = searchData.input;
-
                 /************************************************************************/
                 /* 4.1 find category                                                    */
                 /************************************************************************/
+                string input = searchData.input;
                 var cat_candi = new CategoryModel();
                 if (cat_candi.categories.Any(x => x.ToLower() == input.ToLower()))
                 {
@@ -127,19 +184,8 @@ namespace EleniGeorge.Controllers
                              where it.Colors.Any(x => x.ColorName.ToLower() == input.ToLower())
                              select it;
                 }
-
-                var reVal = (from it in result
-                             let firstOrDefault = it.ItemPictures.FirstOrDefault(x => x.IsDefault)
-                             where firstOrDefault != null
-                             select new GalleryItem()
-                                      {
-                                          Name = it.Name,
-                                          ImgUrl = firstOrDefault
-                                                      .Picture.LargePictureAddress,
-                                          Price = it.ListPrice.HasValue ? it.ListPrice.Value : 0.0
-                                      }).ToList();
-
-                return PartialView("_IndexItemGallery", new ItemGalleryModel(reVal));
+                return PartialView("_IndexItemGallery", 
+                    this.Item2ItemModel(result));
             }
         }
 
@@ -184,7 +230,8 @@ namespace EleniGeorge.Controllers
         public ActionResult ShoppingBag(string ClientID)
         {
             var model = new ShoppingBagModel(ClientID);
-            return View(model);
+            model.account = new AccountModel();
+            return View("ShoppingBag", model);
         }
 
         // Get: /ListOrders?ClientID={id}
@@ -192,7 +239,8 @@ namespace EleniGeorge.Controllers
         public ActionResult ListOrders(string ClientID)
         {
             var model = new OrdersModel(ClientID);
-            return View(model);
+            model.account = new AccountModel();
+            return View("ListOrders", model);
         }
 
         public ActionResult About()
@@ -207,6 +255,16 @@ namespace EleniGeorge.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult addToBag(string itmeID, string clientID)
+        {
+            return ShoppingBag(clientID);
+        }
+
+        public ActionResult SaveForLater(string itemID, string clientID)
+        {
+            return ListOrders(clientID);
         }
     }
 }

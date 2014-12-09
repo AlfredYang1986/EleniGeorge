@@ -16,104 +16,9 @@
 </head>
 <body>
     <header>
-        @*Top header banner*@
-        <div id="top-header-banner" class="container-fluid">
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <div class="pull-left">
-                        <p>
-                            FOLLOW US ON 
-                            <span class="glyphicon glyphicon-search"></span>
-                            <span class="glyphicon glyphicon-plus"></span>
-                            <span class="glyphicon glyphicon-minus"></span>
-                        </p>
-                    </div>
-                </div>
-                <div id="mybag" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <div class="pull-right">
-                        <p><span class="glyphicon glyphicon-lock"></span>My Bag(0): 0000.00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        @*Logo banner area*@
-        <div id="logo-area-banner" class="container-fluid">
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                    <div class="pull-left">
-                        Contact Details
-                    </div>
-                </div>
-                <div class="hidden-sm hidden-xs col-md-6 col-lg-6" id="logo-area">
-                    <p>ELENI GEORGE</p>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-                    <div class="pull-right">
-                        <button class="btn btn-link" id="reg">Join</button>
-                        <span>|</span>
-                        <button class="btn btn-link" id="sign">Sign In</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        @*MENU*@
-        <div id="nav-bar-container">
-            <nav class="navbar navbar-inverse" role="navigation">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsed-menu">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <a class="navbar-brand" href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span></a>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="collapsed-menu">
-                        <ul class="nav navbar-nav">
-                            <li><a class="data-menu-gen">Women</a>
-                                <ul>
-                                    <li><a class="data-menu-cat">Dresses</a>
-                                        <ul>
-                                            <li><a class="data-menu-len">Long</a></li>
-                                            <li><a class="data-menu-len">Short</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="data-menu-cat">Skirts</a>
-                                        <ul>
-                                            <li><a class="data-menu-len">Long</a></li>
-                                            <li><a class="data-menu-len">Short</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a class="data-menu-cat">Tops</a>
-                                        <ul>
-                                            <li><a class="data-menu-len">Long</a></li>
-                                            <li><a class="data-menu-len">Short</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a>Men</a></li>
-                        </ul>
-
-                        <form class="navbar-form navbar-right navbar-input-group" role="search">
-                            <div class="form-group">
-                                <input id="searchInput" type="text" class="form-control" placeholder="Keyword">
-                            </div>
-                            <button type="submit" id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                        </form>
-
-                    </div>
-                </div>
-            </nav>
-        </div>
+        @RenderSection("header", required: true) 
     </header>
-    <div style="margin-top: 140px; z-index: 50">
+    <div style="margin-top: 170px; z-index: 50">
         @RenderBody()
     </div>
 
@@ -154,7 +59,7 @@
         $(function () {
             $(".nav-click > li").click(function () {
                 //alert("yangyuan");
-                window.location.href = "/Home/Index";
+                window.location.href = "/Home/Index?keywords=";
             });
 
             $("#sign").click(function () {
@@ -162,7 +67,8 @@
             });
 
             $("#reg").click(function () {
-                window.location.href = "/Home/Profile";
+                //window.location.href = "/Home/Profile";
+                window.location.href = "/Home/SignInView";
             });
 
             $("#mybag").click(function () {
@@ -170,6 +76,11 @@
             });
 
             $("#searchButton").click(function () {
+                if (isLandingPage === "True") {
+                    window.location.href = "/Home/Index?keywords=" + $("#searchInput")[0].value;
+                    return;
+                }
+
                 var sv = new SearchLogic();
                 sv.reSet();
                 sv.setInputString($("#searchInput")[0].value);
@@ -195,6 +106,10 @@
                     }
                 });
                 return false;
+            });
+
+            $('.data-menu-len').click(function () {
+                window.location.href = "/Home/Index?keywords=" + $(this).attr("data-keyword");
             });
         });
     </script>

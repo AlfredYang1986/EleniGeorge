@@ -4,6 +4,10 @@
     ViewBag.Title = "ShoppingBag";
 }
 
+@section header {
+    @Html.Partial("_CommenHeader", @Model.account)
+}
+
 <div style="margin-bottom: 120px">
 
 <h2 style="margin-left: 50px">SHOPPING BAG</h2>
@@ -28,10 +32,10 @@
             <th width="15px" border="1">
                 <input type="checkbox" style="text-align: center">
             </th>
-            <td>@item.name</td>
-            <td>@item.name</td>
+            <td>@item.Name</td>
+            <td>@item.Name</td>
             <td>1</td>
-            <td>@item.price</td>
+            <td>@item.Price</td>
         </tr>
     }
 </table>

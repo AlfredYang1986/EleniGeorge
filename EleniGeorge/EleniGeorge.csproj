@@ -274,6 +274,7 @@
     <Compile Include="Models\HomePage\ColorModel.cs" />
     <Compile Include="Models\HomePage\HomeIndexModel.cs" />
     <Compile Include="Models\HomePage\ItemGalleryModel.cs" />
+    <Compile Include="Models\HomePage\RouteLineModel.cs" />
     <Compile Include="Models\HomePage\SiderBarModel.cs" />
     <Compile Include="Models\HomePage\SizeModel.cs" />
     <Compile Include="Models\Orders\OrdersModel.cs" />
@@ -437,6 +438,8 @@
     <Content Include="Views\Home\ShoppingBag.cshtml" />
     <Content Include="Views\Home\ListOrders.cshtml" />
     <Content Include="Views\Home\_ItemView.cshtml" />
+    <Content Include="Views\Shared\_CommenHeader.cshtml" />
+    <Content Include="Views\Home\_IndexItemMD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

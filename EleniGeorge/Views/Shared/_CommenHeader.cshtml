@@ -1,0 +1,116 @@
+﻿@model EleniGeorge.Models.AccountModel 
+
+<script type="text/javascript">
+    var isLandingPage = '@Model.isLandingPage'
+</script>
+
+@*Top header banner*@
+<div id="top-header-banner" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p>
+                    FOLLOW US ON 
+                    <span class="glyphicon glyphicon-search"></span>
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="glyphicon glyphicon-minus"></span>
+                </p>
+            </div>
+        </div>
+        <div id="mybag" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><span class="glyphicon glyphicon-lock"></span>My Bag(0): 0000.00</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Logo banner area*@
+<div id="logo-area-banner" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <div class="pull-left">
+                Contact Details
+            </div>
+        </div>
+        <div class="hidden-sm hidden-xs col-md-6 col-lg-6" id="logo-area">
+            <p>ELENI GEORGE</p>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <div class="pull-right">
+                @if (Model.isLogedIn)
+                {
+                    <p>WellCome, <a href="~/Home/Profile">@Model.screenName</a></p>
+                    <div class="row" style="margin-top: 50px">
+                        <a style="font-size: 0.9em" href="/Home/Profile">My Account</a>
+                        <span>|</span>
+                        <a style="font-size: 0.9em" href="/Home/ListOrders?ClientID=abcde">Saved Items</a>                                      
+                        <span>|</span>
+                        <a style="font-size: 0.9em" href="/Home/ShoppingBag?ClientID=abcde">My Bag</a>
+                    </div>
+                } 
+                else 
+                {
+                    <button class="btn btn-link" id="reg">Join</button>
+                    <span>|</span>
+                    <button class="btn btn-link" id="sign">Sign In</button>                   
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@*MENU*@
+<div id="nav-bar-container">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsed-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="collapsed-menu">
+                <ul class="nav navbar-nav">
+                    <li><a class="data-menu-gen">Women</a>
+                        <ul>
+                            <li><a class="data-menu-cat">Dresses</a>
+                                <ul>
+                                    <li><a class="data-menu-len" data-keyword="dresses">Long</a></li>
+                                    <li><a class="data-menu-len" data-keyword="dresses">Short</a></li>
+                                </ul>
+                             </li>
+                             <li><a class="data-menu-cat">Skirts</a>
+                                <ul>
+                                    <li><a class="data-menu-len" data-keyword="skirts">Long</a></li>
+                                    <li><a class="data-menu-len" data-keyword="skirts">Short</a></li>
+                                </ul>
+                             </li>
+                             <li><a class="data-menu-cat">Tops</a>
+                                <ul>
+                                    <li><a class="data-menu-len" data-keyword="tops">Long</a></li>
+                                    <li><a class="data-menu-len" data-keyword="tops">Short</a></li>
+                                </ul>
+                             </li>
+                        </ul>
+                    </li>
+                    <li><a>Men</a></li>
+                </ul>
+
+                @*do not change to form, seriously*@
+                <div class="navbar-form navbar-right navbar-input-group" role="search">
+                    <div class="form-group">
+                        <input id="searchInput" type="text" class="form-control" placeholder="Keyword" value="@ViewBag.searchInput">
+                    </div>
+                    <button type="submit" id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

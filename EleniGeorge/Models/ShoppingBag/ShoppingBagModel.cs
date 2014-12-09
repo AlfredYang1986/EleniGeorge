@@ -9,6 +9,8 @@ namespace EleniGeorge.Models.ShoppingBag
     {
         private IEnumerable<GalleryItem> _itmes;
 
+        public AccountModel account { get; set; }
+
         public ShoppingBagModel(string clientID)
         {
             // get item from database var clientID

@@ -1,5 +1,12 @@
-﻿@{
+﻿@model EleniGeorge.Models.AccountModel
+
+@{
     ViewBag.Title = "SignInView";
+}
+
+@section header {
+
+    @Html.Partial("_CommenHeader", @Model)
 }
 
 <h2 style="margin-left: 50px">SIGN IN</h2>

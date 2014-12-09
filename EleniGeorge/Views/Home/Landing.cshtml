@@ -1,6 +1,14 @@
-﻿@{
+﻿@model EleniGeorge.Models.AccountModel
+
+@{
     ViewBag.Title = "Eleni George";
 }
+
+@section header {
+
+    @Html.Partial("_CommenHeader", @Model)
+}
+
 @Styles.Render("~/Content/Landing.css")
 <div id="bkg-img">
     <img src="~/Images/landingpage.jpg" />

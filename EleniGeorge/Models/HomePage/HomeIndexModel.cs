@@ -15,5 +15,7 @@ namespace EleniGeorge.Models
 
         public SiderBarModel siderbar;
         public ItemGalleryModel items;
+
+        public AccountModel account;
     }
 }

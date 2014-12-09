@@ -4,6 +4,10 @@
     ViewBag.Title = "ListOrders";
 }
 
+@section header {
+    @Html.Partial("_CommenHeader", @Model.account)
+}
+
 <div style="margin-bottom: 120px">
 
 <h2 style="margin-left: 50px">SHOPPING BAG</h2>
@@ -21,16 +25,16 @@
     @foreach (var item in @Model.items) 
     {
 	    <tr style="border: 1px solid #808080; background-color: #fff">
-            <td style="border: 1px solid #808080; padding: 30px 20px">@item.name</td>
+            <td style="border: 1px solid #808080; padding: 30px 20px">@item.Name</td>
             <td style="border: 1px solid #808080; padding: 30px 20px">@item.ImgUrl</td>
             <td style="border: 1px solid #808080; padding: 30px 20px">1</td>
-            <td style="border: 1px solid #808080; padding: 30px 20px">@item.price</td>
+            <td style="border: 1px solid #808080; padding: 30px 20px">@item.Price</td>
         </tr>
     }
 </table>
 
 <div class="pull-right" style="margin-right: 50px">
-    <span>TOTAL : <span>@Model.items.First().price</span></span>
+    <span>TOTAL : <span>@Model.items.First().Price</span></span>
 </div>
 
 <table border="1" width="95%" style="margin-left: 30px; margin-right: 30px">
