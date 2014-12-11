@@ -30,43 +30,9 @@
     <script type="text/javascript">
         var sv = new SearchLogic();
 
-        function itemCallback() {
-            $(".item").click(function () {
-                $("#md-id").attr("data-itemID", "12345");
-                $("#md-price").html("price: $99.99");
-                $("#md-in-stock").html("Only 2 in Stock");
-                $("#md").modal();
-            });
-            $(".itemImg").click(function () {
-                $("#md-id").attr("data-itemID", "12345");
-                $("#md-price").html("price: $99.99");
-                $("#md-in-stock").html("Only 2 in Stock");
-                $("#md").modal();
-            });
-            /**
-             * test for paypal
-             */
-            //$("#md-buy").click(function () {
-            //    window.location.href = "/Home/PayPalPayment?price=1.0";
-            //});
 
-            /**
-             * add to my bag
-             */
-            $("#md-add-bag").click(function () {
-                window.location.href = "/Home/addToBag?itmeID=&clientID="
-            });
-
-            /**
-             * save for later
-             */
-            $("#md-save").click(function () {
-                window.location.href = "/Home/SaveForLater?itmeID=&clientID="
-            });
-        };
 
         $(function () {
-            itemCallback();
 
             $("#sidebar-cate").css("height", $("#sidebar-cate > ul > li").size() / 3 * 20 + 25);
             $("#sidebar-size").css("height", $("#sidebar-size > ul > li").size() / 3 * 20 + 25);
