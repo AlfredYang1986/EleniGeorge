@@ -37,13 +37,13 @@ header {
 #logo-area-banner {
     background-color: white;
     color: gray;
-    height: 100px;
+    /*height: 100px;*/
 }
 
     #logo-area-banner .row {
         width: 1200px;
         margin: auto;
-        height: 100px;
+        /*height: 100px;*/
     }
 
 #logo-area {

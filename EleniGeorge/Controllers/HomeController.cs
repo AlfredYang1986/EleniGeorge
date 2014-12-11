@@ -35,7 +35,7 @@ namespace EleniGeorge.Controllers
 
             using (var db = new TTDBEntities())
             {
-                IEnumerable<Item> result = db.Items;
+                IEnumerable<Item> result = db.Item;
                 m.items = Item2ItemModel(SearchWithInput(keywords, result));
             }
 
@@ -72,7 +72,7 @@ namespace EleniGeorge.Controllers
         private ItemGalleryModel Item2ItemModel(IEnumerable<Item> result)
         {
             return new ItemGalleryModel(
-                    (from it in result let firstOrDefault = it.ItemPictures.FirstOrDefault(x => x.IsDefault)
+                    (from it in result let firstOrDefault = it.ItemPicture.FirstOrDefault(x => x.IsDefault)
                      where firstOrDefault != null
                      select new GalleryItem()
                      {
@@ -93,7 +93,7 @@ namespace EleniGeorge.Controllers
             if (cat_candi.categories.Any(x => x.ToLower() == input.ToLower()))
             {
                 result = from it in result
-                         where it.Categories.Any(x => x.Category1.ToLower() == input.ToLower())
+                         where it.Category.Any(x => x.Category1.ToLower() == input.ToLower())
                          select it;
             }
 
@@ -104,7 +104,7 @@ namespace EleniGeorge.Controllers
             if (col_candi.colors.Any(x => x.ToLower() == input.ToLower()))
             {
                 result = from it in result
-                         where it.Colors.Any(x => x.ColorName.ToLower() == input.ToLower())
+                         where it.Color.Any(x => x.ColorName.ToLower() == input.ToLower())
                          select it;
             }
 
@@ -120,7 +120,7 @@ namespace EleniGeorge.Controllers
 
             using (var db = new TTDBEntities())
             {
-                IEnumerable<Item> result = db.Items;
+                IEnumerable<Item> result = db.Item;
                 /************************************************************************/
                 /* 1. Category                                                          */
                 /************************************************************************/
@@ -131,7 +131,7 @@ namespace EleniGeorge.Controllers
                 foreach (var cat in catArr)
                 {
                     result = from it in result
-                             where it.Categories.Any(x => x.Category1.ToLower() == cat.ToLower())
+                             where it.Category.Any(x => x.Category1.ToLower() == cat.ToLower())
                              select it;
                 }
 
@@ -145,7 +145,7 @@ namespace EleniGeorge.Controllers
                 foreach (var col in colArr)
                 {
                     result = from it in result
-                             where it.Colors.Any(x => x.ColorName.ToLower() == col.ToLower())
+                             where it.Color.Any(x => x.ColorName.ToLower() == col.ToLower())
                              select it;
                 }
 
@@ -159,7 +159,7 @@ namespace EleniGeorge.Controllers
                 foreach (var size in sizeArr)
                 {
                     result = from it in result
-                             where it.ItemSizes.Any(x => x.Size.SizeName.ToString().ToLower() == size.ToLower())
+                             where it.ItemSize.Any(x => x.Size.SizeName.ToString().ToLower() == size.ToLower())
                              select it;
                 }
                 /************************************************************************/
@@ -170,7 +170,7 @@ namespace EleniGeorge.Controllers
                 if (cat_candi.categories.Any(x => x.ToLower() == input.ToLower()))
                 {
                     result = from it in result
-                             where it.Categories.Any(x => x.Category1.ToLower() == input.ToLower())
+                             where it.Category.Any(x => x.Category1.ToLower() == input.ToLower())
                              select it;
                 }
 
@@ -181,7 +181,7 @@ namespace EleniGeorge.Controllers
                 if (col_candi.colors.Any(x => x.ToLower() == input.ToLower()))
                 {
                     result = from it in result
-                             where it.Colors.Any(x => x.ColorName.ToLower() == input.ToLower())
+                             where it.Color.Any(x => x.ColorName.ToLower() == input.ToLower())
                              select it;
                 }
                 return PartialView("_IndexItemGallery", 

@@ -16,13 +16,15 @@ namespace EleniGeorge.Entity
     {
         public ShipMethod()
         {
-            this.SalesOrderHeaders = new HashSet<SalesOrderHeader>();
+            this.SalesOrderHeader = new HashSet<SalesOrderHeader>();
+            this.SalesOrderRow = new HashSet<SalesOrderRow>();
         }
     
         public int ShipMethodID { get; set; }
         public string Name { get; set; }
         public string TrackingURL { get; set; }
     
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; }
+        public virtual ICollection<SalesOrderHeader> SalesOrderHeader { get; set; }
+        public virtual ICollection<SalesOrderRow> SalesOrderRow { get; set; }
     }
 }

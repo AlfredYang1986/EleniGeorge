@@ -19,13 +19,15 @@ namespace EleniGeorge.Entity
         public string CarrierTrackingNumber { get; set; }
         public int OrderQty { get; set; }
         public int ItemID { get; set; }
-        public int SpecialOfferID { get; set; }
         public double UnitPrice { get; set; }
-        public double UnitPriceDiscount { get; set; }
         public double LineTotal { get; set; }
         public int SalesOrderRowGUID { get; set; }
+        public Nullable<int> PromotionID { get; set; }
+        public Nullable<int> ShipMethodID { get; set; }
     
         public virtual Item Item { get; set; }
+        public virtual Promotion Promotion { get; set; }
         public virtual SalesOrderHeader SalesOrderHeader { get; set; }
+        public virtual ShipMethod ShipMethod { get; set; }
     }
 }

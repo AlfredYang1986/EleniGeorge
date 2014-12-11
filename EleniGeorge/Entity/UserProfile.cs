@@ -16,9 +16,9 @@ namespace EleniGeorge.Entity
     {
         public UserProfile()
         {
-            this.SalesOrderHeaders = new HashSet<SalesOrderHeader>();
-            this.Items = new HashSet<Item>();
-            this.Items1 = new HashSet<Item>();
+            this.SalesOrderHeader = new HashSet<SalesOrderHeader>();
+            this.Item = new HashSet<Item>();
+            this.webpages_Roles = new HashSet<webpages_Roles>();
         }
     
         public int UserId { get; set; }
@@ -26,7 +26,7 @@ namespace EleniGeorge.Entity
         public string Title { get; set; }
         public string UserName { get; set; }
         public string Suffix { get; set; }
-        public Nullable<int> CreditCardID { get; set; }
+        public string CreditCardID { get; set; }
         public string PaypalAccount { get; set; }
         public string DefaultPaymentMethod { get; set; }
         public string Phone { get; set; }
@@ -34,8 +34,9 @@ namespace EleniGeorge.Entity
     
         public virtual Address Address { get; set; }
         public virtual CreditCard CreditCard { get; set; }
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; }
-        public virtual ICollection<Item> Items { get; set; }
-        public virtual ICollection<Item> Items1 { get; set; }
+        public virtual ICollection<SalesOrderHeader> SalesOrderHeader { get; set; }
+        public virtual ShoppingBag ShoppingBag { get; set; }
+        public virtual ICollection<Item> Item { get; set; }
+        public virtual ICollection<webpages_Roles> webpages_Roles { get; set; }
     }
 }

@@ -16,12 +16,12 @@ namespace EleniGeorge.Entity
     {
         public CountryRegion()
         {
-            this.StateProvinces = new HashSet<StateProvince>();
+            this.StateProvince = new HashSet<StateProvince>();
         }
     
         public string CountryRegionCode { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<StateProvince> StateProvinces { get; set; }
+        public virtual ICollection<StateProvince> StateProvince { get; set; }
     }
 }

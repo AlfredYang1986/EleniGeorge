@@ -25,26 +25,31 @@ namespace EleniGeorge.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Color> Colors { get; set; }
-        public DbSet<ColorMapping> ColorMappings { get; set; }
-        public DbSet<CountryRegion> CountryRegions { get; set; }
-        public DbSet<CreditCard> CreditCards { get; set; }
-        public DbSet<Item> Items { get; set; }
-        public DbSet<ItemPicture> ItemPictures { get; set; }
-        public DbSet<ItemSize> ItemSizes { get; set; }
-        public DbSet<Material> Materials { get; set; }
-        public DbSet<Occasion> Occasions { get; set; }
-        public DbSet<Picture> Pictures { get; set; }
-        public DbSet<SalesOrderHeader> SalesOrderHeaders { get; set; }
-        public DbSet<SalesOrderRow> SalesOrderRows { get; set; }
-        public DbSet<ShipMethod> ShipMethods { get; set; }
-        public DbSet<Size> Sizes { get; set; }
-        public DbSet<StateProvince> StateProvinces { get; set; }
-        public DbSet<Style> Styles { get; set; }
-        public DbSet<SubCategory> SubCategories { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
-        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Address> Address { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Color> Color { get; set; }
+        public DbSet<ColorMapping> ColorMapping { get; set; }
+        public DbSet<CountryRegion> CountryRegion { get; set; }
+        public DbSet<CreditCard> CreditCard { get; set; }
+        public DbSet<Item> Item { get; set; }
+        public DbSet<ItemPicture> ItemPicture { get; set; }
+        public DbSet<ItemSize> ItemSize { get; set; }
+        public DbSet<Material> Material { get; set; }
+        public DbSet<Occasion> Occasion { get; set; }
+        public DbSet<Picture> Picture { get; set; }
+        public DbSet<Promotion> Promotion { get; set; }
+        public DbSet<SalesOrderHeader> SalesOrderHeader { get; set; }
+        public DbSet<SalesOrderRow> SalesOrderRow { get; set; }
+        public DbSet<ShipMethod> ShipMethod { get; set; }
+        public DbSet<ShoppingBag> ShoppingBag { get; set; }
+        public DbSet<ShoppingBagRow> ShoppingBagRow { get; set; }
+        public DbSet<Size> Size { get; set; }
+        public DbSet<StateProvince> StateProvince { get; set; }
+        public DbSet<Style> Style { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<UserProfile> UserProfile { get; set; }
+        public DbSet<webpages_Membership> webpages_Membership { get; set; }
+        public DbSet<webpages_OAuthMembership> webpages_OAuthMembership { get; set; }
+        public DbSet<webpages_Roles> webpages_Roles { get; set; }
     }
 }

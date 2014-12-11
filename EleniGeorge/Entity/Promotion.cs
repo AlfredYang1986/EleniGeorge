@@ -12,21 +12,24 @@ namespace EleniGeorge.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class CreditCard
+    public partial class Promotion
     {
-        public CreditCard()
+        public Promotion()
         {
-            this.UserProfile = new HashSet<UserProfile>();
             this.SalesOrderHeader = new HashSet<SalesOrderHeader>();
+            this.SalesOrderRow = new HashSet<SalesOrderRow>();
         }
     
-        public string CreditCardID { get; set; }
-        public string CardType { get; set; }
-        public string CardNumber { get; set; }
-        public byte ExpMonth { get; set; }
-        public short ExpYear { get; set; }
+        public int PromotionID { get; set; }
+        public string PromotionName { get; set; }
+        public int DiscountType { get; set; }
+        public Nullable<int> DiscountPercentage { get; set; }
+        public Nullable<double> DiscountValue { get; set; }
+        public Nullable<System.DateTime> StartTime { get; set; }
+        public Nullable<System.DateTime> EndTime { get; set; }
+        public string PromoCode { get; set; }
     
-        public virtual ICollection<UserProfile> UserProfile { get; set; }
         public virtual ICollection<SalesOrderHeader> SalesOrderHeader { get; set; }
+        public virtual ICollection<SalesOrderRow> SalesOrderRow { get; set; }
     }
 }

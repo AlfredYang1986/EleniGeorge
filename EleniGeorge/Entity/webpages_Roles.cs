@@ -12,18 +12,16 @@ namespace EleniGeorge.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Color
+    public partial class webpages_Roles
     {
-        public Color()
+        public webpages_Roles()
         {
-            this.ColorMapping = new HashSet<ColorMapping>();
-            this.Item = new HashSet<Item>();
+            this.UserProfile = new HashSet<UserProfile>();
         }
     
-        public int ColorID { get; set; }
-        public string ColorName { get; set; }
+        public int RoleId { get; set; }
+        public string RoleName { get; set; }
     
-        public virtual ICollection<ColorMapping> ColorMapping { get; set; }
-        public virtual ICollection<Item> Item { get; set; }
+        public virtual ICollection<UserProfile> UserProfile { get; set; }
     }
 }

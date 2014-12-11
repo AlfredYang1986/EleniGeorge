@@ -16,12 +16,12 @@ namespace EleniGeorge.Entity
     {
         public Occasion()
         {
-            this.Items = new HashSet<Item>();
+            this.Item = new HashSet<Item>();
         }
     
         public int OccasionID { get; set; }
         public string OccasionName { get; set; }
     
-        public virtual ICollection<Item> Items { get; set; }
+        public virtual ICollection<Item> Item { get; set; }
     }
 }

@@ -12,18 +12,12 @@ namespace EleniGeorge.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Color
+    public partial class sysdiagrams
     {
-        public Color()
-        {
-            this.ColorMapping = new HashSet<ColorMapping>();
-            this.Item = new HashSet<Item>();
-        }
-    
-        public int ColorID { get; set; }
-        public string ColorName { get; set; }
-    
-        public virtual ICollection<ColorMapping> ColorMapping { get; set; }
-        public virtual ICollection<Item> Item { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

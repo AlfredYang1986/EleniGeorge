@@ -19,12 +19,12 @@ namespace EleniGeorge.Models
         {
             using (var data = new TTDBEntities())
             {
-                Items = (from it in data.Items
+                Items = (from it in data.Item
                          orderby it.SellStartDate
                          select new GalleryItem()
                          {
                              Name = it.Name,
-                             ImgUrl = it.ItemPictures.FirstOrDefault(x => x.IsDefault).Picture.LargePictureAddress,
+                             ImgUrl = it.ItemPicture.FirstOrDefault(x => x.IsDefault).Picture.LargePictureAddress,
                              Price = it.ListPrice.HasValue ? it.ListPrice.Value : 0.0
 
                          }).Skip(skip).Take(step).ToList();

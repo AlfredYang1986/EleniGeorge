@@ -12,9 +12,10 @@ namespace EleniGeorge.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class SubCategory
+    public partial class webpages_OAuthMembership
     {
-        public int CategoryID { get; set; }
-        public int SubCategoryID { get; set; }
+        public string Provider { get; set; }
+        public string ProviderUserId { get; set; }
+        public int UserId { get; set; }
     }
 }

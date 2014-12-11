@@ -16,12 +16,12 @@ namespace EleniGeorge.Entity
     {
         public Size()
         {
-            this.ItemSizes = new HashSet<ItemSize>();
+            this.ItemSize = new HashSet<ItemSize>();
         }
     
         public int SizeID { get; set; }
-        public byte[] SizeName { get; set; }
+        public string SizeName { get; set; }
     
-        public virtual ICollection<ItemSize> ItemSizes { get; set; }
+        public virtual ICollection<ItemSize> ItemSize { get; set; }
     }
 }

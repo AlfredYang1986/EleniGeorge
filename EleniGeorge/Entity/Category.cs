@@ -16,12 +16,16 @@ namespace EleniGeorge.Entity
     {
         public Category()
         {
-            this.Items = new HashSet<Item>();
+            this.Item = new HashSet<Item>();
+            this.Category11 = new HashSet<Category>();
+            this.Category2 = new HashSet<Category>();
         }
     
         public int CategoryID { get; set; }
         public string Category1 { get; set; }
     
-        public virtual ICollection<Item> Items { get; set; }
+        public virtual ICollection<Item> Item { get; set; }
+        public virtual ICollection<Category> Category11 { get; set; }
+        public virtual ICollection<Category> Category2 { get; set; }
     }
 }

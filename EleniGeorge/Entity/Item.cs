@@ -16,16 +16,15 @@ namespace EleniGeorge.Entity
     {
         public Item()
         {
-            this.ItemPictures = new HashSet<ItemPicture>();
-            this.ItemSizes = new HashSet<ItemSize>();
-            this.SalesOrderRows = new HashSet<SalesOrderRow>();
-            this.UserProfiles = new HashSet<UserProfile>();
-            this.Categories = new HashSet<Category>();
-            this.Colors = new HashSet<Color>();
-            this.Materials = new HashSet<Material>();
-            this.Occasions = new HashSet<Occasion>();
-            this.Styles = new HashSet<Style>();
-            this.UserProfiles1 = new HashSet<UserProfile>();
+            this.ItemPicture = new HashSet<ItemPicture>();
+            this.ItemSize = new HashSet<ItemSize>();
+            this.SalesOrderRow = new HashSet<SalesOrderRow>();
+            this.Category = new HashSet<Category>();
+            this.Color = new HashSet<Color>();
+            this.Material = new HashSet<Material>();
+            this.Occasion = new HashSet<Occasion>();
+            this.Style = new HashSet<Style>();
+            this.UserProfile = new HashSet<UserProfile>();
         }
     
         public int ItemID { get; set; }
@@ -38,20 +37,19 @@ namespace EleniGeorge.Entity
         public Nullable<int> DaysToMake { get; set; }
         public System.DateTime SellStartDate { get; set; }
         public Nullable<System.DateTime> SellEndDate { get; set; }
-        public int CategoryID { get; set; }
         public string Gender { get; set; }
         public string ItemGUID { get; set; }
         public int Length { get; set; }
+        public int Stock { get; set; }
     
-        public virtual ICollection<ItemPicture> ItemPictures { get; set; }
-        public virtual ICollection<ItemSize> ItemSizes { get; set; }
-        public virtual ICollection<SalesOrderRow> SalesOrderRows { get; set; }
-        public virtual ICollection<UserProfile> UserProfiles { get; set; }
-        public virtual ICollection<Category> Categories { get; set; }
-        public virtual ICollection<Color> Colors { get; set; }
-        public virtual ICollection<Material> Materials { get; set; }
-        public virtual ICollection<Occasion> Occasions { get; set; }
-        public virtual ICollection<Style> Styles { get; set; }
-        public virtual ICollection<UserProfile> UserProfiles1 { get; set; }
+        public virtual ICollection<ItemPicture> ItemPicture { get; set; }
+        public virtual ICollection<ItemSize> ItemSize { get; set; }
+        public virtual ICollection<SalesOrderRow> SalesOrderRow { get; set; }
+        public virtual ICollection<Category> Category { get; set; }
+        public virtual ICollection<Color> Color { get; set; }
+        public virtual ICollection<Material> Material { get; set; }
+        public virtual ICollection<Occasion> Occasion { get; set; }
+        public virtual ICollection<Style> Style { get; set; }
+        public virtual ICollection<UserProfile> UserProfile { get; set; }
     }
 }

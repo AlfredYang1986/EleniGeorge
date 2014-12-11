@@ -16,7 +16,7 @@ namespace EleniGeorge.Entity
     {
         public SalesOrderHeader()
         {
-            this.SalesOrderRows = new HashSet<SalesOrderRow>();
+            this.SalesOrderRow = new HashSet<SalesOrderRow>();
         }
     
         public int SalesOrderID { get; set; }
@@ -28,18 +28,20 @@ namespace EleniGeorge.Entity
         public string Status { get; set; }
         public int BillToAddressID { get; set; }
         public int ShipToAddressID { get; set; }
-        public int CreditCardID { get; set; }
+        public string CreditCardID { get; set; }
         public double SubTotal { get; set; }
         public double TaxAmt { get; set; }
         public double Freight { get; set; }
         public double TotalDue { get; set; }
         public int SalesOrderGUID { get; set; }
+        public Nullable<int> PromotionID { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Address Address1 { get; set; }
         public virtual CreditCard CreditCard { get; set; }
+        public virtual Promotion Promotion { get; set; }
         public virtual UserProfile UserProfile { get; set; }
         public virtual ShipMethod ShipMethod { get; set; }
-        public virtual ICollection<SalesOrderRow> SalesOrderRows { get; set; }
+        public virtual ICollection<SalesOrderRow> SalesOrderRow { get; set; }
     }
 }

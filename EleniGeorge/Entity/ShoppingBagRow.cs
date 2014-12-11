@@ -12,12 +12,14 @@ namespace EleniGeorge.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class ShoppingBagRow
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int CustomerID { get; set; }
+        public int RowID { get; set; }
+        public int OrderQty { get; set; }
+        public int ItemID { get; set; }
+        public double UnitPrice { get; set; }
+    
+        public virtual ShoppingBag ShoppingBag { get; set; }
     }
 }
