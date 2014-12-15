@@ -54,8 +54,13 @@
     @RenderSection("scripts", required: false)
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/SearchLogic.js"></script>
+    <script src="~/Scripts/FBLogin.js"></script>
 
     <script type="text/javascript">
+        var fb = new facebook_lib();
+        var sv = new SearchLogic();
+
         function itemCallback() {
             $(".item").click(function () {
                 $("#md-id").attr("data-itemID", "12345");

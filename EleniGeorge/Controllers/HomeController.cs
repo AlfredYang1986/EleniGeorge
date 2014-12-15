@@ -29,7 +29,7 @@ namespace EleniGeorge.Controllers
 
         // GET: /Index
 
-        public ActionResult Index(string keywords = "")
+        public ActionResult Index(string keywords = "", string user = "")
         {
             var m = new HomeIndexModel();
 
@@ -44,12 +44,20 @@ namespace EleniGeorge.Controllers
             /* for test                                                             */
             /* add login                                                            */
             /************************************************************************/
-            m.account = new AccountModel()
+            if (user != "")
             {
-                screenName = "Alfred",
-                isLandingPage = false,
-                isLogedIn = true
-            };
+                m.account = new AccountModel()
+                {
+                    screenName = user,
+                    isLandingPage = false,
+                    isLogedIn = true
+                };
+            }
+            else
+            {
+                m.account = new AccountModel() { isLandingPage = false };
+            }
+
             return View(m);
         }
 

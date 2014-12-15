@@ -19,10 +19,10 @@
         <p style="font-size: 1.5em">EXISTING CUSTOMER:</p>
         <br />
         <p style="font-size: 1.1em">EMAIL:</p>
-        <input type="text" style="width: 60%">
+        <input id="log_email" type="text" style="width: 60%">
         <br />
         <p style="font-size: 1.1em; margin-top: 20px">PASSWORD:</p>
-        <input type="text" style="width: 60%">
+        <input id="log_pwd" type="password" style="width: 60%">
         <br />
         <div class="checkbox" style="margin-left: 30px; margin-top: 20px; margin-bottom: 0px">
             <label style="padding-left: 0px; font-size:1.0em">
@@ -32,8 +32,9 @@
 
         <br />
         <div>
-            <button class="btn btn-lg" style="background-color: #808080">SIGN IN</button>
+            <button id="log_in" class="btn btn-lg" style="background-color: #808080">SIGN IN</button>
             <button class="btn btn-link">FORGET MY PASSWORD</button>
+            <fb:login-button scope="public_profile,email" onlogin="fb.checkLoginState();"></fb:loginbutton>
         </div>
     </div>
 
@@ -41,16 +42,86 @@
         <p style="font-size: 1.5em">NEW TO ELENI GEORGE:</p>
         <br />
         <p style="font-size: 1.1em">EMAIL:</p>
-        <input type="text" style="width: 60%">
+        <input id="reg_email" type="text" style="width: 60%">
         <br />
         <p style="font-size: 1.1em; margin-top: 20px">PASSWORD:</p>
-        <input type="text" style="width: 60%">
+        <input id="reg_pwd" type="password" style="width: 60%">
         <br />
         <p style="font-size: 1.1em; margin-top: 20px">CONFIRM PASSWORD:</p>
-        <input type="text" style="width: 60%">
+        <input id="reg_com_pwd" type="text" style="width: 60%">
         <br />
         <div style="margin-top: 30px">
-            <button class="btn btn-lg" style="background-color: #808080">REGISTATOR</button>
+            <button id="reg_user" class="btn btn-lg" style="background-color: #808080">REGISTATOR</button>
         </div>
     </div>
 </div>
+
+@section scripts {
+
+    <script type="text/javascript">
+        $(function(){
+            $('#reg_user').click(function () {
+                var data = new Object();
+                data["name"] = $("#reg_email")[0].value;
+                data["pwd"] = $("#reg_pwd")[0].value;
+                $.ajax({
+                    url: '/Login/CreatMemberShip',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json, charset=utf-8',
+                    data: JSON.stringify(data),
+                    cache: false,
+                    //beforeSend: function () {
+                    //    Loading();
+                    //},
+                    //complete: function () {
+                    //    hiddenLoading();
+                    //},
+                    success: function (data) {
+                        var json = eval('(' + data + ')'); 
+                        if (json.success) {
+                            window.location.href = "/Home/Index?user=" + json.name;
+                        } else {
+                            alert("login failed");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            });
+
+            $('#log_in').click(function () {
+                var data = new Object();
+                data["name"] = $("#log_email")[0].value;
+                data["pwd"] = $("#log_pwd")[0].value;
+                $.ajax({
+                    url: '/Login/SignIn',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json, charset=utf-8',
+                    data: JSON.stringify(data),
+                    cache: false,
+                    //beforeSend: function () {
+                    //    Loading();
+                    //},
+                    //complete: function () {
+                    //    hiddenLoading();
+                    //},
+                    success: function (data) {
+                        var json = eval('(' + data + ')'); 
+                        if (json.success) {
+                            window.location.href = "/Home/Index?user=" + json.name;
+                        } else {
+                            alert("login failed");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            });
+        });
+    </script>
+
+}
