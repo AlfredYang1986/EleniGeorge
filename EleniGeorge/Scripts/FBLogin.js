@@ -54,12 +54,18 @@ facebook_lib.prototype.statusChangeCallback = function(response) {
 }
 
 facebook_lib.prototype.checkLoginState = function () {
-    FB.login(
-        FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-        },
-            { scope: 'public_profile,email' }
-        ));
+    var self = this;
+
+    FB.getLoginStatus(function (response) {
+        self.statusChangeCallback(response);
+    });
+
+    //FB.login(
+    //    FB.getLoginStatus(function (response) {
+    //        this.statusChangeCallback(response);
+    //    },
+    //        { scope: 'public_profile,email' }
+    //    ));
 }
 
 facebook_lib.prototype.facebookLoginSetup = function () {
